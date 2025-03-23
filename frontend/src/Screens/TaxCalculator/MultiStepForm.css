@@ -1,0 +1,319 @@
+/* Increased height of the form container */
+
+/* Centering the Income Tax Calculator Title */
+.calculator-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #1c6b5c;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Ensure the entire app is centered */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.form-container {
+    display: flex;
+    width: 60%;
+    height: auto;
+    min-height: auto;
+    margin: auto;
+    margin-top: 50px; /* Add this to push the form down */
+    padding: 30px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: min-height 0.3s ease-in-out;
+  }
+  
+  .app-container::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background:   rgba(28, 107, 92, 0.2);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    z-index: -1;
+  }
+  
+  .app-container::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background:  rgba(28, 107, 92, 0.5);
+    border-radius: 50%;
+    bottom: -100px;
+    right: -100px;
+    z-index: -1;
+  }
+  
+  
+  
+  /* Ensure form steps adjust dynamically */
+  .form-step {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: auto;
+    margin-bottom:30px;
+  }
+  
+  /* Adjust button placement */
+  
+  /* Form Content Section */
+  .form-content {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Tab Navigation */
+  .tab-header {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-header span {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    color: #777;
+  }
+  
+  .tab-header .active {
+    color: #1c6b5c;
+    border-bottom: 3px solid #1c6b5c;
+  }
+  
+  /* Basic Details - Two Column Layout */
+  .basic-details .two-column {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+  }
+  
+  .basic-details .two-column div {
+    width: 48%;
+  }
+  
+  /* Form Steps */
+  .form-step {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  /* Two-Column Layout for Other Sections */
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  
+  
+  .two-column div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  
+  /* Labels and Inputs */
+  label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Target only the first .two-column inside the first step */
+  .basic-details .two-column {
+    display: flex;
+    gap: 15px; /* Space between the inputs */
+  }
+  
+  .basic-details .financialYear,
+  .basic-details .age-container {
+    flex: 1; /* Ensure both elements take equal width */
+  }
+  
+  .basic-details .financialYear select,
+  .basic-details .age-container input {
+    width: 100%;
+    height: 40px; /* Keep both fields same height */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for dropdown arrow */
+  .basic-details .financialYear select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%2302353C" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+    padding-right: 40px; /* Prevent text overlap */
+  }
+  
+  /* Hover and Focus Effects */
+  .basic-details .financialYear select:hover, 
+  .basic-details .financialYear select:focus, 
+  .basic-details .age-container input:hover, 
+  .basic-details .age-container input:focus {
+    border-color: #02353C;
+    box-shadow: 0 0 5px rgba(2, 53, 60, 0.3);
+    outline: none;
+  }
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .financialYear {
+      gap: 6px;
+    }
+  
+    .financialYear .dropdown {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
+  
+  /* Ensure buttons stay at respective corners with spacing */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px 0 0;
+    gap: 40px;
+    position: relative;
+  }
+  
+  /* Position Previous button at bottom-left with spacing */
+  .bottom-left {
+    margin-top: 20px;
+    padding: 20px 0 0;
+    gap: 40px;
+    position: absolute;
+    left: 50px; /* Add spacing from left */
+    bottom: 20px; /* Add spacing from bottom */
+  }
+  
+  /* Position Next/Calculate button at bottom-right with spacing */
+  .bottom-right {
+    margin-top: 20px;
+    padding: 20px 0 0;
+    gap: 40px;
+    position: absolute;
+    right: 30px; /* Add spacing from right */
+    bottom: 20px; /* Add spacing from bottom */
+  }
+  
+  /* Make sure buttons are in a single row */
+  .bottom-left button {
+    min-width: 120px;
+    padding: 10px 15px;
+    background: #1c6b5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  /* Make sure buttons are in a single row */
+  .bottom-right button {
+    min-width: 120px;
+    padding: 10px 15px;
+    background: #1c6b5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  /* Button Hover Effects */
+  .bottom-left button:hover {
+    background: #155c4b;
+  }
+  /* Button Hover Effects */
+  .bottom-right button:hover {
+    background: #155c4b;
+  }
+  
+  
+  /* Responsive Fix for Small Screens */
+  @media (max-width: 768px) {
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+  
+    .form-content {
+      width: 100%;
+    }
+  
+    .buttons {
+      flex-direction: row;
+      align-items: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 20px;
+      width: 100%;
+    }
+  
+    .bottom-left {
+      gap: 20px;
+      margin-top: 20px;
+      width: 100%;
+      left: 10px; /* Reduce spacing slightly for small screens */
+      bottom: 10px;
+    }
+  
+    .bottom-right {
+      gap: 20px;
+      margin-top: 20px;
+      width: 100%;
+      right: 10px; /* Reduce spacing slightly for small screens */
+      bottom: 10px;
+    }
+  
+    .bottom-left button {
+      position: relative;
+      width: auto;
+      text-align: center;
+    }
+    .bottom-right button {
+      position: relative;
+      width: auto;
+      text-align: center;
+    }
+  }

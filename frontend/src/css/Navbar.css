@@ -1,0 +1,73 @@
+/* Navbar styles */
+/* Navbar styles */
+.navbar {
+  position: absolute; /* Position it at the top left */
+  top: 0px;
+  left: 0;
+  width: 100vw; /* Ensures the navbar takes full width */
+  z-index: 1000;
+  background-color: #ffffff; /* White background */
+  padding: 10px 20px; /* Adds some spacing */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+  /* Logo styles */
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #064635; /* Dark green */
+    text-decoration: none;
+  }
+  
+  /* Navigation links */
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds space between links */
+  }
+  
+  .nav-item {
+    list-style: none;
+  }
+  
+  /* Style for each link */
+  .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #064635; /* Dark green */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover {
+    color: #0b8b57; /* Lighter green on hover */
+  }
+  
+  /* Login button */
+  .nav-link.btn {
+    padding: 6px 15px;
+    border-radius: 8px;
+    background-color: #0b8b57; /* Green */
+    color: white !important;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .nav-link.btn:hover {
+    background-color: #064635; /* Darker green */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .navbar {
+      padding: 10px;
+    }
+  }
+  

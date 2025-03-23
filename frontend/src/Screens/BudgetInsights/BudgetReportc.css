@@ -1,0 +1,201 @@
+.tax-savvy-report {
+  --primary-color: #C1F6ED;
+  --dark-shade: #02353C;
+  --accent-green: #449342;
+  --secondary-green: #2EAF7D;
+  --highlight-teal: #3FD0C9;
+}
+
+.tax-savvy-report {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--primary-color);
+  color: var(--dark-shade);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.tax-savvy-report .report-container {
+  width: 90%;
+  max-width: 1050px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.tax-savvy-report h1 {
+  color: var(--accent-green);
+  font-size: 2rem;
+}
+
+.tax-savvy-report .report-subtitle {
+  font-size: 1rem;
+  color: var(--dark-shade);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* ✅ Impact Cards */
+.tax-savvy-report .impact-flow {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.tax-savvy-report .impact-card {
+  flex: 1;
+  background: var(--highlight-teal);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  min-width: 250px;
+  max-width: 300px;
+  cursor: pointer;
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ Read More Button */
+.tax-savvy-report .read-more-button {
+  background: var(--secondary-green);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.tax-savvy-report .read-more-button:hover {
+  background: var(--dark-shade);
+}
+
+/* ✅ Action Buttons */
+.tax-savvy-report .action-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.tax-savvy-report .action-button {
+  background: var(--accent-green);
+  color: white;
+  margin: 10px;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.tax-savvy-report .action-button:hover {
+  background: var(--dark-shade);
+  transform: scale(1.05);
+}
+
+/* ✅ Mobile Responsiveness */
+@media (max-width: 900px) {
+  .tax-savvy-report .impact-flow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tax-savvy-report .impact-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .tax-savvy-report .report-container {
+    padding: 20px;
+  }
+
+  .tax-savvy-report h1 {
+    font-size: 1.7rem;
+  }
+
+  .tax-savvy-report .action-button {
+    width: 90%;
+  }
+}
+
+/* ✅ Dropdown */
+.tax-savvy-report .dropdown-container {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tax-savvy-report .dropdown-container label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-shade);
+  margin-bottom: 5px;
+}
+
+.tax-savvy-report .custom-dropdown {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid var(--highlight-teal);
+  border-radius: 8px;
+  background: white;
+  color: var(--dark-shade);
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.tax-savvy-report .custom-dropdown:hover,
+.tax-savvy-report .custom-dropdown:focus {
+  border-color: var(--secondary-green);
+  box-shadow: 0 0 8px rgba(63, 208, 201, 0.5);
+}
+
+/* ✅ Generate Report Button */
+.tax-savvy-report .generate-btn {
+  background: var(--accent-green);
+  color: white;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: block;
+  margin: 20px auto;
+}
+
+.tax-savvy-report .generate-btn:hover {
+  background: var(--dark-shade);
+  transform: scale(1.05);
+}
+
+/* ✅ Mobile Adjustments */
+@media (max-width: 600px) {
+  .tax-savvy-report .custom-dropdown {
+    width: 90%;
+  }
+
+  .tax-savvy-report .generate-btn {
+    width: 90%;
+  }
+}

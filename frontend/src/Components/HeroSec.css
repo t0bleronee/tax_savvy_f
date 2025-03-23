@@ -1,0 +1,28 @@
+.hero-section {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative; /* ensure positioning works */
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700; /* bold for heading */
+    color:#333333 ; /* vibrant green */
+    font-family: 'Poppins', sans-serif; /* clean modern font */
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    margin-top: 10px;
+    color: whitesmoke; /* keep the paragraph text white */
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-section .btn {
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
