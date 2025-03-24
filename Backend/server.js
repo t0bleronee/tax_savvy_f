@@ -20,8 +20,7 @@ connectDB();
 
 // Tax Calculation Routes
 app.use("/tax", taxRoutes);
-app.use("/budgetrep", reportRoutes);
-
+app.use("/api", reportRoutes);
 
 // -----------------------------------
 // Generate Financial Tips Function

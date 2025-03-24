@@ -104,14 +104,15 @@ const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 async function generateAISummary(baseReport) {
     try {
-        const promptText = `The following initiatives are designed to provide **direct benefits** to individuals like you. Here's what you can gain from them:  
+        const promptText = `The following initiatives are designed to provide direct benefits to individuals like you. Here's what you can gain from them:  
 
-        - Clearly outline the benefits **available to the user** based on their profession, location, or situation.  
-        - Use **engaging and direct language** like "You can access...", "This initiative helps you by...", "Here's what you get...".  
-        - Focus on **real, actionable advantages** instead of general descriptions.  
+        - Clearly outline the benefits available to the user based on their profession, location, or situation.  
+        - Use engaging and direct language like "You can access...", "This initiative helps you by...", "Here's what you get...".  
+        - Focus on real, actionable advantages instead of general descriptions. 
+        - Ensure the content is concise, informative, and tailored to the user's needs and the font style is easy to read no bold and also lets it be like a paragraph. 
         
         Data:\n\n${JSON.stringify(baseReport, null, 2)}`;
-
+         
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
         const response = await model.generateContent({
             contents: [{ role: "user", parts: [{ text: promptText }] }]
