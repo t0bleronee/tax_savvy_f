@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./BudgetReportc.css";
-
+import Navbar from '../../Components/Navbar'; 
 const professions = ["Agribusiness Entrepreneurs", "Agricultural Scientists", "Authors", "Banks", "Borrowers", "Businesses", "Children", "Community Workers", "Daily Wage Workers", "Dairy Farmers", "Economists", "Educators", "Entrepreneurs", "Exporters", "Farmers", "Female Workforce", "Fishermen", "General Public", "Healthcare Workers", "Industrial Workers", "Industry Professionals", "Innovators", "Investors", "Job Seekers", "Low-Income Individuals", "Manufacturers", "Mining Companies", "Policy Makers", "Publishers", "Researchers", "Retirees", "Rural Communities", "Rural Population", "Small Business Owners", "Students", "Teachers", "Technologists", "Textile Manufacturers", "Tourism Entrepreneurs", "Women", "Workers", "Workforce", "Working Population"];
 
 const ageGroups = ["0-18", "18–60", "60+", "All age groups"];
@@ -64,6 +64,8 @@ const BudgetReport = () => {
   };
 
   return (
+     <div>
+              <Navbar />  {/* Navigation Bar */}
     <div className="tax-savvy-report">
     <motion.div className="report-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
       <h1>TaxSavvy: Your Personalized Budget Report</h1>
@@ -108,7 +110,7 @@ const BudgetReport = () => {
           ))}
         </div>
       )}
-    </motion.div></div>
+    </motion.div></div></div>
   );
 };
 
