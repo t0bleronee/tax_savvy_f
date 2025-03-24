@@ -31,20 +31,22 @@ const fetchReports = async (req, res) => {
     
         const [rows] = await db.execute(query, [profession, ageGroup]);
 
-        if (rows.length === 0) {
-            return res.status(404).json({ error: "No matching features found." });
-          }
+      if (rows.length === 0) {
+          summary = "No matching features found."; // Ensure summary is always defined
+      } else {      
           const baseReport = rows.map((row) => ({
-            details: {
-                feature: row.name, // Fetched feature from
-              explanation: row.description, // Fetched explanation from DB
-              //affects: "To be defined based on requirements.", // Modify if needed
-            },
+              details: {
+                  feature: row.name, // Fetched feature from DB
+                  explanation: row.description, // Fetched explanation from DB
+              },
           }));
-        // Process and generate reports
-        const summary = await generateAISummary(baseReport);
-
-        res.json({ summary, financialImpactReport:  finalReport});
+          
+          // Process and generate reports
+          summary = await generateAISummary(baseReport);
+      }
+      
+      // Ensure finalReport is defined before using it
+      res.json({ summary, financialImpactReport: finalReport || {} });
     } catch (error) {
         console.error("❌ Error fetching reports:", error);
         res.status(500).json({ message: "Internal Server Error" });
