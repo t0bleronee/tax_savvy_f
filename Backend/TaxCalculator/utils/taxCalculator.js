@@ -77,7 +77,7 @@ function calculateTax(data) {
 
   if (taxableIncomeNewRegime <= 1200000) {
       newRegimeTax = 0;
-  } else if (taxableIncomeNewRegime <= 1270500) {
+  } else if (taxableIncomeNewRegime <= 1275000) {
       newRegimeTax = (taxableIncomeNewRegime - 1200000);
   } else {
       newRegimeTax = calculateNewRegimeTax(taxableIncomeNewRegime);
