@@ -7,7 +7,9 @@ import FinancialTipsPage from './Screens/FinancialTipsPage';
 import MultiStepForm from "./Screens/TaxCalculator/MultiStepForm";  // Import Tax Calculator
 import ComparisonTool from "./Screens/TaxCalculator/ComparisonTool";
 import BudgetReport from "./Screens/BudgetInsights/BudgetReport";
-import "bootstrap/dist/css/bootstrap.min.css";  // Import Bootstrap for styling 
+import BudgetFeaturesApp from "./Screens/BudgetFeatures/BudgetFeaturesApp"; 
+// import "bootstrap/dist/css/bootstrap.min.css"; // Ensure this is imported last only if needed.
+
 
 function App() {
   return (
@@ -21,8 +23,8 @@ function App() {
           <Route path="/tax-calculator" element={<MultiStepForm />} /> 
           <Route path="/comparison" element={<ComparisonTool />} /> 
           <Route path="/budget-report" element={<BudgetReport />} /> 
-
-        </Routes>
+          <Route path="/budget-features" element={<BudgetFeaturesApp />} />
+          </Routes>
       </div>
     </Router>
   );

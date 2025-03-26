@@ -25,14 +25,14 @@ const features = [
     buttonLink: "/budget-report", // Redirects to Budget Report Page
   },
   {
-    header: "Govt. Schemes Finder",
+    header: "Budget Features",
     items: [
-      "Check eligibility for schemes",
-      "Save more with govt. advantages",
-      "Explore investment-linked benefits",
+      "Know about the new Union Budget Features",
+      "Filter the features that affect you",
+      "Understand how the feature affects you",
     ],
     buttonText: "Discover Schemes",
-    buttonLink: "#",
+    buttonLink: "/budget-features",
   },
   {
     header: "Smart Tax Filing",

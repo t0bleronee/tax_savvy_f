@@ -1,0 +1,758 @@
+:root {
+    --primary-color: #C1F6ED;
+    --dark-shade: #02353C;
+    --accent-green: #449342;
+    --secondary-green: #2EAF7D;
+    --highlight-teal: #3FD0C9;
+}
+
+/* Container */
+.container {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color : var(--primary-color);
+}
+
+/* Statistics */
+.stats {
+    display: flex;
+    gap: 10px;
+}
+
+.stat-box {
+    background: var(--highlight-teal);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--dark-shade);
+}
+label section .categories{
+    color : white;
+}
+/* Dark Mode Toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #0F1A2B;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.sidebar {
+    width: 250px; 
+    height: 100vh; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--dark-shade);
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 14px;
+}
+
+.dark-mode-toggle-container {
+    
+    padding-bottom: 20px; 
+} 
+.sidebar select {
+    width: 100%;
+    padding: 8px;  
+    margin-bottom: 8px; 
+    border-radius: 12px; 
+    border: 1px solid var(--highlight-teal);
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--primary-color);
+    color: var(--dark-shade);
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+ 
+
+}
+
+.sidebar select:hover {
+    border-color: var(--secondary-green);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar select:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0px 0px 10px rgba(28, 46, 74, 0.5);
+}
+
+/* Updated Dropdown Options */
+.sidebar select option {
+    background: #ffffff;
+    /* color: #333; */
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar select option:hover,
+.sidebar select option:checked {
+    background-color: #52677D;
+    color: white;
+}
+
+button {
+    background-color: var(--secondary-green);
+    font-family: 'Inter', sans-serif;
+
+}
+
+.sidebar select:hover {
+    border-color: var(--secondary-green);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar select:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0px 0px 10px rgba(28, 46, 74, 0.5);
+}
+
+/* Updated Dropdown Options */
+.sidebar select option {
+    background: #ffffff;
+    /* color: #333; */
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar select option:hover,
+.sidebar select option:checked {
+    background-color: #52677D;
+    color: white;
+}
+
+/* Additional Modern Touch */
+button {
+    background-color: var(--secondary-green);
+    font-family: 'Inter', sans-serif;
+}
+
+
+.content {
+    margin-left: 270px; 
+    padding: 30px; 
+    background-color: #f8f9fa; 
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .content {
+        margin-left: 0;
+    }
+}
+
+
+.dark-mode .content {
+    background-color: var(--primary-dark);
+}
+.dark-mode .sidebar{
+    background-color: #0f2427;
+}
+.dark-mode .feature-card {
+    background: #2E3B55; 
+    color: black; 
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); 
+}
+
+
+/* ---------------- Smooth Hover Effects ---------------- */
+select, button {
+    transition: 0.3s ease-in-out;
+    
+
+}
+
+select:hover, button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* ---------------- Typewriter Effect for Heading ---------------- */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2s steps(30, end) forwards;
+}
+
+/* ---------------- Page Loading Animation ---------------- */
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader div {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #1C2E4A;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide loader when page loads */
+.hidden {
+    display: none;
+}
+
+#features-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feature-item {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .header{
+    color : white;
+}
+
+.dark-mode #budget-features #title1{
+    color :white;
+}
+
+.dark-mode #features-container .no-results {
+    color: white !important;
+}
+
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    /* color: #333; */
+}
+
+/* Buttons */
+button {
+    background-color: var(--accent-green);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Updated Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+
+
+/* Feature Cards */
+.feature-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: var(--dark-shade);
+    color: #ffffffd7;
+}
+
+.dark-mode .feature-card {
+    background: var(--accent-green);
+    color: #ffffffd7;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode button {
+    background-color: var(--highlight-teal);
+    color: var(--dark-shade);
+}
+
+.dark-mode button:hover {
+    background-color: var(--primary-color);
+}
+
+
+.dark-mode .sidebar select:hover {
+    border-color: var(--secondary-green);
+}
+
+.dark-mode .sidebar select {
+    background-color: var(--accent-green);
+    color: white;
+    border-color: var(--highlight-teal);
+}
+
+
+.dark-mode .sidebar select option {
+    background: var(--dark-shade); 
+    color: white; 
+    border-radius: 0; 
+}
+
+
+.dark-mode .sidebar select option:hover {
+    background: var(--highlight-teal); 
+    color: black; 
+}
+
+
+.dark-mode .sidebar select option:checked {
+    background: var(--secondary-green);
+    color: white;
+}
+
+
+/* Header */
+h1{
+    font-weight: 600;
+    color : black;
+}
+h2{
+    font-weight: 600;
+}
+
+.dark-mode h1, .dark-mode h2 {
+    color: white;
+}
+
+/* --------------------------
+   Feature Cards
+--------------------------- */
+.feature-card {
+    background: fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode for feature cards */
+.dark-mode .feature-card {
+    background: var(--dark-shade);
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* --------------------------
+   Modern Overlay & Modal
+--------------------------- */
+.overlay {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 9999;
+}
+.overlay.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Updated Modal */
+.modal {
+    display: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    max-width: 95%;
+    max-height: 80vh;       
+    background: white;
+    border-radius: 12px;
+    overflow-y: auto;      
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+    z-index: 10000;
+}
+
+/* Updated Accordion Active Content */
+.accordion-item.active .accordion-content {
+    padding: 1rem 1.5rem;
+    max-height: none;      
+}
+
+
+/* For the modal content container, enable vertical scrolling if needed */
+.modal .accordion {
+    max-height: 70vh;        
+    overflow-y: auto;
+}
+
+
+.modal.active {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--secondary-green);
+    padding: 1rem 1.5rem;
+}
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-shade);
+}
+
+
+/* --------------------------
+   Accordion Styles
+--------------------------- */
+
+.accordion-item {
+    border-bottom: 1px solid var(--highlight-teal);
+}
+.accordion-header {
+    padding: 1rem 1.5rem;
+    
+        background: white;
+   
+        cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+.accordion-header:hover {
+ background-color:#e6f3e6;
+}
+.accordion-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--dark-shade);
+}
+.accordion-header i {
+    transition: transform 0.3s ease;
+    color: var(--secondary-green);
+}
+.accordion-item.active .accordion-header i {
+    transform: rotate(180deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-in-out, padding 0.25s ease-in-out;
+
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: black;
+}
+.accordion-item.active .accordion-content {
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    max-height: none;
+}
+
+/* --------------------------
+   Dark Mode Adjustments
+--------------------------- */
+.dark-mode .modal {
+    background-color: rgba(20, 20, 20, 0.95); /* Deep dark color with slight opacity */
+    color: var(--text-light);
+
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.1);
+}
+.dark-mode .modal-header {
+    border-bottom: 1px solid var(--accent-green);
+}
+.dark-mode .modal-header h2 {
+    color: var(--primary-color);
+}
+
+.dark-mode .accordion-header {
+    background: var(--accent-green-dark);
+}
+.dark-mode .accordion-header:hover {
+    background: #012125;
+}
+
+.dark-mode .accordion-header h3 {
+    color: var(--primary-color);
+}
+.dark-mode .accordion-content {
+    color: var(--highlight-teal);
+}
+.dark-mode .modal .accordion {
+    background-color: var(--background-dark);
+}
+
+.section-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .section-nav button {
+    background-color: #02353C;
+    color: fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .section-nav button:hover {
+    background-color: #03262b;
+  }
+  
+  .section-page-indicator {
+    font-size: 0.9rem;
+    color: #02353C;
+  }
+  
+  /* Dark mode adjustments for pagination
+   */
+  .dark-mode .section-nav button {
+    color: var(--primary-color);
+    background-color: #02353C;
+  }
+  
+  .dark-mode .section-nav button:hover {
+    background-color:  #010f11;
+  }
+  
+  .dark-mode .section-page-indicator {
+    color: #ccc;
+  }
+  
+
+ /* Tooltip Section inside Sidebar */
+ .tooltip-section {
+    position: relative;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 8px;
+  }
+  
+  /* Tooltip Category Buttons */
+  .tooltip-category {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  .tooltip-btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    background: #ffffff;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .tooltip-btn:hover {
+    transform: scale(1.2);
+    background: #f0f0f0;
+  }
+  
+ /* FINAL Tooltip Fix: Appears Above Sidebar */
+.tooltip-box {
+    position: absolute;
+    bottom: 100%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    color:#0F1A2B;
+    background-color: #defff2;
+    border: 2px solid #104430;
+    padding: 15px;
+    margin-left: 30px;
+    border-radius: 10px;
+    width: 280px;
+    max-width: 350px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
+    animation: fadeIn 0.3s ease-in-out forwards;
+    text-align: center; 
+  }
+  
+  /* Smooth fade-in effect */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+  
+  /* Tooltip Arrow - Points DOWN to the Sidebar */
+  .tooltip-box::before {
+    content: "";
+    position: absolute;
+    top: 100%; /* Arrow at the bottom of tooltip box */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #449342 transparent transparent transparent;
+  }
+  
+  /* Mobile Responsive Fix */
+  @media (max-width: 768px) {
+    .tooltip-box {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      max-width: 300px;
+    }
+  }
+  .tooltip-box button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 8px; /* Smaller padding */
+    font-size: 12px; /* Smaller text */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  /* Style for "Learn More" Link */
+.tooltip-box a {
+    color: #2EAF7D; 
+    font-weight: bold;
+    text-decoration: none; 
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .tooltip-box a:hover {
+    color: #24805d; 
+    text-decoration: underline; 
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+  }
+/* Global label styling in the filters section */
+/* Make all labels inside the sidebar white */
+.sidebar label {
+    color: white !important;
+}
+
+
