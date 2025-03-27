@@ -7,7 +7,7 @@ import FinancialTipsPage from './Screens/FinancialTipsPage';
 import MultiStepForm from "./Screens/TaxCalculator/MultiStepForm";  // Import Tax Calculator
 import ComparisonTool from "./Screens/TaxCalculator/ComparisonTool";
 import BudgetReport from "./Screens/BudgetInsights/BudgetReport";
-import AIChatbot from "./Screens/AIChatbot/AIChatbot";
+import Chatbot from "./Screens/AIchatbot/Chatbot";
 import "bootstrap/dist/css/bootstrap.min.css";  // Import Bootstrap for styling 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/tax-calculator" element={<MultiStepForm />} /> 
           <Route path="/comparison" element={<ComparisonTool />} /> 
           <Route path="/budget-report" element={<BudgetReport />} /> 
-
+          <Route path="/ai-chatbot" element={<Chatbot />} /> 
         </Routes>
       </div>
     </Router>
