@@ -40,14 +40,20 @@ const BudgetReport = () => {
       setReportData({
         financialImpactFull: data?.financialImpactReport || "No financial impact report available.",
         socialImpactFull: data?.summary || "No AI summary available.",
-        nationalImpactFull: "Government investments in tax compliance & automation promise smoother tax filing. " +
-          "With the latest reforms, businesses will experience better compliance tools, " +
-          "and individuals will see automated tax filing assistance through AI-driven platforms.",
-        financialImpact: getShortSummary(data.financialImpactReport),
+        nationalImpactFull:  "The Union Budget 2025 focuses on making India self-reliant and developed by improving key aspects of life:\n\n" +
+        "1️⃣ Zero Poverty & Jobs: New financial schemes and employment programs to uplift low-income groups.\n" +
+        "2️⃣ Quality Education: Better schools, digital learning, and skill training for all.\n" +
+        "3️⃣ Affordable Healthcare: Expanded medical facilities and cancer care centers for easy access to treatment.\n" +
+        "4️⃣ Skilled Workforce & Employment: Training programs and business support to boost job opportunities.\n" +
+        "5️⃣ Women’s Economic Empowerment: Policies to increase women’s workforce participation.\n" +
+        "6️⃣ Stronger Agriculture: Modern farming support to make India a global food leader.\n" +
+        "7️⃣ Infrastructure & Innovation: Major investments in transport, energy, and technology for a future-ready India.\n" +
+        "8️⃣ Boosting Exports & Businesses: Support for startups, MSMEs, and global trade growth.\n\n" +
+        "This budget builds a stronger economy with better education, jobs, healthcare, and opportunities for all.",
+      financialImpact: getShortSummary(data.financialImpactReport),
         socialImpact: getShortSummary(data.summary),
-        nationalImpact: getShortSummary("Government investments in tax compliance & automation promise smoother tax filing. " +
-          "With the latest reforms, businesses will experience better compliance tools, " +
-          "and individuals will see automated tax filing assistance through AI-driven platforms."),
+        nationalImpact: "The Union Budget 2025 focuses on making India self-reliant ... " ,
+   
       });
     } catch (error) {
       console.error("Error fetching data:", error);

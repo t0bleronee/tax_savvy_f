@@ -1,14 +1,9 @@
 // Imports
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const bcrypt = require('bcryptjs');
-const UserModel = require('./userprofile/user');
-
-// Initialize app
-const app = express();
-app.use(express.json()); // Parse JSON bodies
-app.use(cors());         // Enable CORS
+const UserModel = require('./user');
+const router = express.Router();
 
 // MongoDB Connection (Fix localhost typo)
 mongoose.connect('mongodb://127.0.0.1:27017/user', {
@@ -21,7 +16,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/user', {
 // ===============================
 // ✅ Register API
 // ===============================
-app.post('/api/signup', async (req, res) => {
+router.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
 
     try {
@@ -52,7 +47,7 @@ app.post('/api/signup', async (req, res) => {
 // ===============================
 // ✅ Login API
 // ===============================
-app.post('/api/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -76,7 +71,4 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// Start Server
-app.listen(3001, () => {
-    console.log("Server is running on port 3001");
-});
+module.exports = router; 

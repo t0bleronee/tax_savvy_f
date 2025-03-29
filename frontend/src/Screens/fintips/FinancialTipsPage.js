@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getFinancialTips } from "../api";
+import { getFinancialTips } from "./api";
 import { FaArrowLeft, FaLeaf } from "react-icons/fa";
 import { motion } from "framer-motion";
 

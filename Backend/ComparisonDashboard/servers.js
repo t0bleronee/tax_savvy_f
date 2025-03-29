@@ -1,9 +1,5 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const port = 5000;
-
-app.use(cors());
+const express = require("express");
+const router = express.Router();
 
 const calculateTax = (income) => {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -47,24 +43,19 @@ const calculateTax = (income) => {
     newTaxRegime.push(calculateTaxForSlabs(newTaxSlabs, income) / 12); // Monthly tax for new regime
   }
 
-  return {
-    months,
-    oldTaxRegime,
-    newTaxRegime,
-  };
+  return { months, oldTaxRegime, newTaxRegime };
 };
 
-app.get('/tax-comparison', (req, res) => {
-  const { income } = req.query;
+// Define route for tax comparison
+router.get("/:income", (req, res) => {
+  const { income } = req.params;
 
   if (!income || isNaN(income) || income <= 0) {
-    return res.status(400).json({ error: 'Invalid income value. Please provide a positive number.' });
+    return res.status(400).json({ error: "Invalid income value. Please provide a positive number." });
   }
 
   const taxComparisonData = calculateTax(parseFloat(income));
   res.json(taxComparisonData);
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+module.exports = router;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import axios from 'axios';
-
+import Navbar from '../../Components/Navbar';
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
 
 const Dashboard = () => {
@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   const fetchTaxComparison = async (income) => {
     try {
-      const response = await axios.get(`http://localhost:5000/tax-comparison?income=${income}`);
+      const response = await axios.get(`http://localhost:5000/taxc/${income}`);
       setComparisonData(response.data);
       setError('');
     } catch (error) {
@@ -54,6 +54,9 @@ const Dashboard = () => {
   } : {};
 
   return (
+    <div>
+      <Navbar />
+   
     <div className="dashboard-container">
       <h1 className="dashboard-heading">Tax Comparison Dashboard</h1>
       <form onSubmit={handleSubmit} className="dashboard-form">
@@ -75,7 +78,7 @@ const Dashboard = () => {
           <Line data={chartData} />
         </div>
       )}
-    </div>
+    </div> </div>
   );
 };
 

@@ -9,7 +9,7 @@ const connectString="mongodb+srv://kurlepurajesh18:EFrpJGLzLU8kWfbg@cluster0.0xe
 // OR use environment variable (recommended)
 // const connectString = process.env.MONGO_URI;
 
-const connectDB = async () => {
+const connectDB1 = async () => {
     try {
         const conn = await mongoose.connect(connectString);
         console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
@@ -19,7 +19,7 @@ const connectDB = async () => {
     }
 };
 
-module.exports = { connectDB };
+module.exports = { connectDB1 };
 
 
 
