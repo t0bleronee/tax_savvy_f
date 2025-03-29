@@ -67,9 +67,9 @@ const LoginSignup = () => {
         });
 
         if (response.data.success) {
-          alert("Signup successful! Please login.");
-          setIsLogin(true);
-          setForm({ name: "", email: "", password: "", confirmPassword: "" });
+          alert("Signup successful! Redirecting to homepage...");
+          localStorage.setItem("userEmail", email); // Save user session
+          navigate("/home"); // Redirect to home page directly after signup
         } else {
           alert(response.data.message || "Signup failed!");
         }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Navbar.css'; 
+
 export default function Navbar() {
   return (
     <nav className="navbar bg-light">
@@ -15,12 +16,6 @@ export default function Navbar() {
           </li>
           <li className="nav-item mx-2">
             <Link className="nav-link" to="/contact">Contact Us</Link>
-          </li>
-          <li className="nav-item mx-2">
-            <Link className="nav-link" to="/services">Services</Link>
-          </li>
-          <li className="nav-item mx-2">
-            <Link className="nav-link" to="/resources">Resources</Link>
           </li>
           <li className="nav-item mx-2">
             <Link className="nav-link btn btn-primary" to="/">LogOut</Link>

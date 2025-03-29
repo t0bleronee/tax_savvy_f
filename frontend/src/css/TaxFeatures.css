@@ -1,0 +1,42 @@
+/* TaxFeatures.css */
+
+.button-green {
+    background-color: #28a745; /* Green color */
+    color: white ; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .button-green:hover {
+    background-color: #218838 !important; /* Darker green on hover */
+  }
+
+
+
+  /* Login button */
+  .fea-link.btn {
+    background-color: #28a745; /* Green color */
+    color: white ; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+  }
+  .fea-link.btn:hover {
+    background-color: #218838 ; /* Darker green on hover */
+  }
+  

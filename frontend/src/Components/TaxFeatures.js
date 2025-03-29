@@ -1,5 +1,9 @@
 import React from "react";
 import CardComponent from "./CardComp";
+import "../css/TaxFeatures.css";
+
+
+// Import the CSS file for styling
 
 const features = [
   {
@@ -11,7 +15,7 @@ const features = [
       "Compare tax regimes instantly",
     ],
     buttonText: "Calculate Now",
-    buttonLink: "/tax-calculator", // Redirects to Tax Calculator Page
+    buttonLink: "/tax-calculator",
   },
   {
     header: "Budget Insights",
@@ -22,7 +26,7 @@ const features = [
       "Interactive graphical insights",
     ],
     buttonText: "View Insights",
-    buttonLink: "/budget-report", // Redirects to Budget Report Page
+    buttonLink: "/budget-report",
   },
   {
     header: "Budget Features",
@@ -35,14 +39,15 @@ const features = [
     buttonLink: "/budget-features",
   },
   {
-    header: "Smart Tax Filing",
+    header: "Interactive Tax Visualization",
     items: [
-      "Step-by-step guided filing",
-      "Auto-fetch tax documents",
-      "Minimize tax errors",
+      "Visualize tax savings with interactive charts",
+      "Compare Old vs. New tax regime easily",
+      "Understand deductions with graphical representations",
     ],
-    buttonText: "File Now",
-    buttonLink: "/dashboard-charts", // Redirects to Dashboard Page
+    buttonText: "Explore Charts",
+    
+    buttonLink: "/dashboard-charts",
   },
   {
     header: "AI Chatbot Assistant",
@@ -52,7 +57,7 @@ const features = [
       "24/7 tax support",
     ],
     buttonText: "Ask Now",
-    buttonLink: "/ai-chatbot", // Redirects to AI Chatbot Page
+    buttonLink: "/ai-chatbot",
   },
   {
     header: "Tax Saving Strategies",
@@ -62,7 +67,7 @@ const features = [
       "Expert financial tips",
     ],
     buttonText: "Explore Strategies",
-    buttonLink: "/financial-tips", // Redirects to Financial Tips Page
+    buttonLink: "/financial-tips",
   },
 ];
 
@@ -71,7 +76,7 @@ export default function TaxFeatures() {
     <div className="container mt-5">
       <div className="row g-4">
         {features.map((feature, index) => (
-          <CardComponent key={index} {...feature} />
+          <CardComponent key={index} {...feature} buttonClass="button-green" />
         ))}
       </div>
     </div>

@@ -5,7 +5,6 @@ import TaxFeatures from '../Components/TaxFeatures'; // Import the new Tax Featu
 import HomeCarousal from '../Components/HomeCarousal'
 import AboutUs from '../Components/AboutUs';
 import FAQs from '../Components/FAQs';
-import  Subscription from '../Components/Subscription';
 import Video from '../Components/Video';
 import Footer from '../Components/Footer'
 
@@ -29,7 +28,6 @@ export default function Home() {
       <HomeCarousal />
       <AboutUs />
       <FAQs />
-      <Subscription />
       <Video />
       
       
