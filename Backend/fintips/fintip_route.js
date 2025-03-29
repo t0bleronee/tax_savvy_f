@@ -1,31 +1,13 @@
+// Connect to MongoDB
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const taxRoutes = require("./TaxCalculator/routes/taxRoutes");
-const reportRoutes =require( "./BudgetInsights/routes/reportRoutes");
-const taxComparisonRoutes = require("./ComparisonDashboard/servers");
-const authRoutes = require("./userprofile/authroutes"); // User authentication routes
-const financialTipsRoutes = require("./fintips/fintip_route");
+const taxData = require("../TaxCalculator/model/product.model"); // MongoDB Model
+
+//const { connectDB1 } = require("../TaxCalculator/config/db"); // Database connection
 dotenv.config();
-
-const app = express();
-
-// Middleware
-app.use(cors());
-app.use(express.json()); // Express has built-in JSON parsing
-app.use(express.urlencoded({ extended: true })); // For form submissions
-// Tax Calculation Routes
-app.use("/tax", taxRoutes);
-app.use("/api", reportRoutes);
-app.use("/taxc", taxComparisonRoutes);
-app.use("/auth", authRoutes); // User authentication routes
-app.use("/get-financial-tips", financialTipsRoutes); // Financial tips routes
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
-// Connect to MongoDB
-/*connectDB();
+//connectDB1();
+const router = express.Router();
 
 
 // -----------------------------------
@@ -109,7 +91,7 @@ const generateFinancialTips = (user) => {
 // -----------------------------------
 // API: Get Financial Tips By Email
 // -----------------------------------
-app.get("/get-financial-tips/:email", async (req, res) => {
+router.get("/:email", async (req, res) => {
     try {
         const email = req.params.email;
         const user = await taxData.findOne({ email });
@@ -124,8 +106,5 @@ app.get("/get-financial-tips/:email", async (req, res) => {
         console.error(err);
         res.status(500).json({ error: err.message });
     }
-});*/
-
-// -----------------------------------
-// Start Server
-// -----------------------------------
+});
+module.exports = router;

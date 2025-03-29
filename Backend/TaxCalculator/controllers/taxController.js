@@ -59,6 +59,7 @@ saveTaxData = async (req, res) => {
 getTaxData = async (req, res) => {
     try {
         const { email } = req.params;
+        console.log("Fetching tax data for email:", email);
         const taxdata = await taxData.find({ email }).sort({ createdAt: -1 });
         if (!taxdata.length) {
             return res.status(404).json({ success: false, message: 'Tax data not found' });

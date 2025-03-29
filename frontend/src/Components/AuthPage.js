@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../css/login.css";
+import { useNavigate } from "react-router-dom";
+
+
 
 const LoginSignup = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
 
   const [form, setForm] = useState({
@@ -41,7 +45,7 @@ const LoginSignup = () => {
 
     try {
       if (isLogin) {
-        const response = await axios.post("http://localhost:3001/api/login", {
+        const response = await axios.post("http://localhost:5000/auth/login", {
           email,
           password
         });
@@ -50,12 +54,13 @@ const LoginSignup = () => {
           alert("Login successful!");
           // Add localStorage/token saving logic here if needed
           localStorage.setItem("userEmail", email);
+          navigate("/home"); // Redirect to home page on successful login
         } else {
           alert(response.data.message || "Login failed!");
         }
 
       } else {
-        const response = await axios.post("http://localhost:3001/api/signup", {
+        const response = await axios.post("http://localhost:5000/auth/signup", {
           name,
           email,
           password

@@ -72,19 +72,13 @@ async function generateTaxReport(baseReport) {
         const takeHomeIncomeNew = newRegime.netIncomeAfterTax;
 
         return `
- Based on your income and deductions, your total tax liability under the Old Regime is ₹${oldRegime.taxPayable}, while under the New Regime, it is ₹${newRegime.taxPayable}. 
-    
- Since your taxable income is below ₹12L, you qualify for a rebate of upto ₹60,000 under Section 87A in the New Regime, reducing your final tax payable to ₹${netTaxNew}.
-    
- ${taxSavings > 0 ? `By opting for the Old Regime, you pay ₹${taxSavings} more in taxes compared to the New Regime.` : `By choosing the New Regime, you save ₹${Math.abs(taxSavings)} more in taxes over the Old Regime.`} 
-    
- Your total deductions and exemptions, including 80C, 80D, home loan interest, and other eligible sections, amount to ₹${deductionSavings}, effectively lowering your taxable income in the Old Regime.
-    
- After all deductions and tax rebates, your take-home income would be ₹${takeHomeIncomeOld} under the Old Regime and ₹${takeHomeIncomeNew} under the New Regime. 
-    
- ${takeHomeIncomeOld > takeHomeIncomeNew ? `This means you retain an additional ₹${takeHomeIncomeOld - takeHomeIncomeNew} by opting for the Old Regime.` : `Choosing the New Regime increases your take-home income by ₹${takeHomeIncomeNew - takeHomeIncomeOld}.`}  
-
- Making an informed tax decision is crucial to optimizing your savings and maximizing your take-home earnings. Choose the regime that aligns best with your financial goals and tax-saving strategy.
+1️⃣ Based on your income and deductions, your total tax liability under the Old Regime is ₹${oldRegime.taxPayable}, while under the New Regime, it is ₹${newRegime.taxPayable}.\n
+2️⃣Since your taxable income is below ₹12L, you qualify for a rebate of upto ₹60,000 under Section 87A in the New Regime, reducing your final tax payable to ₹${netTaxNew}.\n
+3️⃣${taxSavings > 0 ? `By opting for the Old Regime, you pay ₹${taxSavings} more in taxes compared to the New Regime.` : `By choosing the New Regime, you save ₹${Math.abs(taxSavings)} more in taxes over the Old Regime.`} \n
+4️⃣Your total deductions and exemptions, including 80C, 80D, home loan interest, and other eligible sections, amount to ₹${deductionSavings}, effectively lowering your taxable income in the Old Regime.\n   
+5️⃣After all deductions and tax rebates, your take-home income would be ₹${takeHomeIncomeOld} under the Old Regime and ₹${takeHomeIncomeNew} under the New Regime. \n   
+6️⃣${takeHomeIncomeOld > takeHomeIncomeNew ? `This means you retain an additional ₹${takeHomeIncomeOld - takeHomeIncomeNew} by opting for the Old Regime.` : `Choosing the New Regime increases your take-home income by ₹${takeHomeIncomeNew - takeHomeIncomeOld}.`} \n 
+7️⃣Making an informed tax decision is crucial to optimizing your savings and maximizing your take-home earnings. Choose the regime that aligns best with your financial goals and tax-saving strategy.
     `.trim();
     } catch (error) {
         console.error("Error generating tax report:", error);

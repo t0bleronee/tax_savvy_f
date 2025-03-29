@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { marked } from "marked";
 
+import Navbar from '../../Components/Navbar';
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -50,6 +51,8 @@ const Chatbot = () => {
   };
 
   return (
+    <div>
+      <Navbar />
     <div style={darkMode ? styles.darkContainer : styles.lightContainer}>
       <button onClick={() => setDarkMode(!darkMode)} style={styles.toggleButton}>
         {darkMode ? "🌞" : "🌙"}
@@ -86,7 +89,7 @@ const Chatbot = () => {
           ➤
         </button>
       </div>
-    </div>
+    </div></div>
   );
 };
 

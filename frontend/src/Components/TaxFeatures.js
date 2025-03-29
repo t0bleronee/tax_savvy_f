@@ -42,7 +42,7 @@ const features = [
       "Minimize tax errors",
     ],
     buttonText: "File Now",
-    buttonLink: "#",
+    buttonLink: "/dashboard-charts", // Redirects to Dashboard Page
   },
   {
     header: "AI Chatbot Assistant",
@@ -52,7 +52,7 @@ const features = [
       "24/7 tax support",
     ],
     buttonText: "Ask Now",
-    buttonLink: "#",
+    buttonLink: "/ai-chatbot", // Redirects to AI Chatbot Page
   },
   {
     header: "Tax Saving Strategies",
