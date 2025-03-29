@@ -6,6 +6,7 @@ const reportRoutes =require( "./BudgetInsights/routes/reportRoutes");
 const taxComparisonRoutes = require("./ComparisonDashboard/servers");
 const authRoutes = require("./userprofile/authroutes"); // User authentication routes
 const financialTipsRoutes = require("./fintips/fintip_route");
+//const featuresRoutes = require("./BudgetFeatures/server/app.js"); // Budget features routes
 dotenv.config();
 
 const app = express();
@@ -20,7 +21,7 @@ app.use("/api", reportRoutes);
 app.use("/taxc", taxComparisonRoutes);
 app.use("/auth", authRoutes); // User authentication routes
 app.use("/get-financial-tips", financialTipsRoutes); // Financial tips routes
-
+//app.use("/budget-features", featuresRoutes); // Budget features routes
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 

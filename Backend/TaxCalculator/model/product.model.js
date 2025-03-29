@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const {comDB}= require("../config/db");
 const { Schema, model } = mongoose;
 
 const regimeSchema = new Schema({
@@ -39,6 +39,6 @@ const taxSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
   }, { timestamps: true });
 
-  const taxData = model('taxData', taxSchema);
+  const taxData = comDB.model('taxData', taxSchema);
 
   module.exports = taxData;

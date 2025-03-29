@@ -10,7 +10,7 @@ import BudgetReport from "./Screens/BudgetInsights/BudgetReport";
 import Chatbot from "./Screens/AIchatbot/Chatbot";
 import Dashboard from "./Screens/ComparisonDashboard/Dashboard"; // Import Dashboard
 import "bootstrap/dist/css/bootstrap.min.css";  // Import Bootstrap for styling 
-//import BudgetFeaturesApp from './Screens/BudgetFeatures/BudgetFeaturesApp'; <Route path="/budget-features" element={<BudgetFeaturesApp />} /> 
+//import BudgetFeaturesApp from './Screens/BudgetFeatures/BudgetFeaturesApp';           <Route path="/budget-features" element={<BudgetFeaturesApp />} /> 
 function App() {
   return (
     <Router>
@@ -25,6 +25,7 @@ function App() {
           <Route path="/budget-report" element={<BudgetReport />} /> 
           <Route path="/ai-chatbot" element={<Chatbot />} /> 
           <Route path="/dashboard-charts" element={<Dashboard />} /> 
+
         </Routes>
       </div>
     </Router>

@@ -6,13 +6,14 @@ import { useState, useEffect } from 'react';
 ///do smtg and get the mailid from userdatabase
 const ComparisonTool = () => {
   const [taxData, setTaxData] = useState(null);
-  const email = localStorage.getItem("userEmail")||"us112@example.com"; // Replace with the actual user email from context or state
+  const email = localStorage.getItem("userEmail"); // Replace with the actual user email from context or statelocalStorage.getItem("userEmail")||
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         console.log("Fetching tax data...");
         const response = await fetch(`http://localhost:5000/tax/${email}`);
+        
         if (!response.ok) {
           throw new Error(`Failed to fetch tax data: ${response.statusText}`);
         }

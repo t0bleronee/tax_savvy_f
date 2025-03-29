@@ -1,0 +1,88 @@
+/* Page background */
+.financial-tips-container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #4FD1A5, #A8D8D3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'EB Garamond', serif;
+    padding: 20px;
+}
+
+/* Centered form box */
+.financial-tips-wrapper {
+    max-width: 400px;
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+}
+
+/* Form title */
+.financial-tips-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #217A5D;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form group */
+.financial-tips-group {
+    margin-bottom: 15px;
+}
+
+.financial-tips-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1C6C52;
+}
+
+.financial-tips-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #A8D8D3;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Error message */
+.financial-tips-error {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Submit button */
+.financial-tips-button {
+    width: 100%;
+    background: linear-gradient(to right, #A8D8D3, #4FD1A5);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.financial-tips-button:hover {
+    background: #217A5D;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .financial-tips-wrapper {
+        padding: 20px;
+    }
+    .financial-tips-title {
+        font-size: 24px;
+    }
+}

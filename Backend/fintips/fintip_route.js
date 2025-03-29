@@ -4,9 +4,9 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const taxData = require("../TaxCalculator/model/product.model"); // MongoDB Model
 
-//const { connectDB1 } = require("../TaxCalculator/config/db"); // Database connection
+//const { connectDB } = require("../TaxCalculator/config/db"); // Database connection
 dotenv.config();
-//connectDB1();
+//connectDB();
 const router = express.Router();
 
 
@@ -93,15 +93,14 @@ const generateFinancialTips = (user) => {
 // -----------------------------------
 router.get("/:email", async (req, res) => {
     try {
-        const email = req.params.email;
-        const user = await taxData.findOne({ email });
-
-        if (!user) {
-            return res.status(404).json({ error: "User not found with this email!" });
+        const { email } = req.params;
+        console.log("Fetching tax data for email:", email);
+        const taxdata = await taxData.find({ email }).sort({ createdAt: -1 });
+        if (taxdata.length === 0) {
+            return res.status(404).json({ error: "No tax data found for this email" });
         }
-
-        const tips = generateFinancialTips(user);
-        res.json({ email: user.email, tips });
+        const tips = generateFinancialTips(taxdata[0]);
+        res.json({ email: taxdata.email, tips });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: err.message });

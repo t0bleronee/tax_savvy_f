@@ -1,7 +1,9 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaPaperPlane } from "react-icons/fa";
-
+import "../../css/fintips.css"; 
+import Navbar from "../../Components/Navbar"; // Import the Navbar component
 const FinancialTipsForm = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
@@ -18,33 +20,35 @@ const FinancialTipsForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-400 to-blue-500">
-            <div className="bg-white p-8 rounded-xl shadow-xl w-full max-w-md">
-                <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-                    Get Your Personalized Financial Tips 💡
-                </h1>
-
-                <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-                    <input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="p-3 rounded border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
-                    />
-
-                    {error && <p className="text-red-500 text-center">{error}</p>}
-
-                    <button
-                        type="submit"
-                        className="flex items-center justify-center space-x-2 bg-blue-500 text-white px-4 py-3 rounded hover:bg-blue-600 transition-all"
-                    >
-                        <FaPaperPlane />
-                        <span>Get Tips</span>
+        <div>
+            <Navbar /> {/* Include the Navbar component here */}
+       
+        <div className="financial-tips-container">
+            <div className="financial-tips-wrapper">
+                <h2 className="financial-tips-title">Financial Tips  </h2>
+    
+                <form onSubmit={handleSubmit}>
+                    <div className="financial-tips-group">
+                        <label htmlFor="email" className="financial-tips-label">Email Address</label>
+                        <input
+                            id="email"
+                            type="email"
+                            className="financial-tips-input"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+    
+                    {error && <p className="financial-tips-error">{error}</p>}
+    
+                    <button type="submit" className="financial-tips-button">
+                        <FaPaperPlane /> Get Tips
                     </button>
                 </form>
             </div>
-        </div>
+        </div> </div>
     );
 };
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './BudgetFeaturesStyles.css';
 import Navbar from '../../Components/Navbar'; 
 import { useState, useEffect } from 'react';
@@ -36,15 +35,13 @@ function Sidebar({
   showTip,
   tip,
   closeTip,
-  darkMode,
-  toggleDarkMode,
 }) {
   return (
     
-    <aside className="sidebar">
-      <h2>📊 Budget Explorer</h2>
+    <aside className="ufx-unique-sidebar">
+      <h2 className="ufx-unique-h2">📊 Budget Explorer</h2>
       <section className="profile">
-        <h3>👤 Your Profile</h3>
+        <h3 className="ufx-unique-h3">👤 Your Profile</h3>
         <label htmlFor="profession">What is your profession?</label>
         <select
           id="profession"
@@ -73,7 +70,7 @@ function Sidebar({
         </select>
       </section>
       <section className="filters">
-        <h3>📌 Location</h3>
+        <h3 className="ufx-unique-h3">📌 Location</h3>
         <label htmlFor="location">Filter by location:</label>
         <select
           id="location"
@@ -89,7 +86,7 @@ function Sidebar({
         </select>
       </section>
       <section className="categories">
-        <h3>📂 Budget Categories</h3>
+        <h3 className="ufx-unique-h3">📂 Budget Categories</h3>
         <label htmlFor="budget-category">Filter by category:</label>
         <select
           id="budget-category"
@@ -140,13 +137,6 @@ function Sidebar({
           </div>
         )}
       </section>
-      <section className="dark-mode-toggle-container">
-        <label className="switch" aria-label="Toggle dark mode">
-          <input type="checkbox" checked={darkMode} onChange={toggleDarkMode} />
-          <span className="slider"></span>
-        </label>
-        <span>Dark Mode</span>
-      </section>
     </aside>
   );
 }
@@ -154,15 +144,15 @@ function Sidebar({
 // FeatureList component: shows header and feature cards
 function FeatureList({ features, loading, error, onFeatureClick }) {
   return (
-    <main className="content">
-      <header className="header">
+    <main className="ufx-unique-content">
+      <header className="ufx-unique-header">
         <h1>TaxSavvy Budget Explorer</h1>
         <p>Find relevant budget features based on your profession and age.</p>
       </header>
       {loading ? <p>Loading...</p> : error ? <p>{error}</p> : null}
-      <section id="budget-features">
+      <section id="ufx-unique-budget-features">
         <h2 id="title1">Budget Features</h2>
-        <div id="features-container" className="features-container">
+        <div id="ufx-unique-features-container" className="ufx-unique-features-container">
           {features.length === 0 ? (
             <p className="no-results">
               No features found for selected filters.
@@ -171,10 +161,10 @@ function FeatureList({ features, loading, error, onFeatureClick }) {
             features.map((feature) => (
               <div
                 key={feature.id}
-                className="feature-card"
+                className="ufx-unique-feature-card"
                 onClick={() => onFeatureClick(feature)}
               >
-                <h3>{feature.name}</h3>
+                <h3 className="ufx-unique-h3">{feature.name}</h3>
                 <p>{feature.description}</p>
                 <p>
                   <strong>Category:</strong> {feature.category}
@@ -223,47 +213,46 @@ function FeatureModal({ feature, paginationData, setPaginationData, closeModal }
   };
 
   return (
-    <div className="modal-overlay">
-      {/* Add "active" to ensure CSS shows the modal */}
-      <div className="modal active">
-        <div className="modal-header">
-          <h2>{feature.name}</h2>
+    <div className="ufx-unique-modal-overlay">
+      <div className="ufx-unique-modal active">
+        <div className="ufx-unique-modal-header">
+          <h2 className="ufx-unique-h2">{feature.name}</h2>
           <button
-            className="close-modal"
+            className="ufx-unique-close-modal"
             onClick={closeModal}
             aria-label="Close modal"
           >
             &times;
           </button>
         </div>
-        <div className="accordion" id="accordion">
+        <div className="ufx-unique-accordion" id="ufx-unique-accordion">
           {/* Explanation Section */}
-          <div className={`accordion-item ${activeAccordion.explanation ? "active" : ""}`}>
-            <div className="accordion-header" onClick={() => toggleAccordion("explanation")}>
-              <h3>Explanation</h3>
+          <div className={`ufx-unique-accordion-item ${activeAccordion.explanation ? "active" : ""}`}>
+            <div className="ufx-unique-accordion-header" onClick={() => toggleAccordion("explanation")}>
+              <h3 className="ufx-unique-h3">Explanation</h3>
               <i className="fas fa-chevron-down"></i>
             </div>
             {activeAccordion.explanation && (
-              <div className="accordion-content">
+              <div className="ufx-unique-accordion-content">
                 <div
-                  className="section-content"
+                  className="ufx-unique-section-content"
                   dangerouslySetInnerHTML={{
                     __html: paginationData.explanation.pages[paginationData.explanation.currentPage],
                   }}
                 ></div>
-                <div className="section-nav">
+                <div className="ufx-unique-section-nav">
                   <button
-                    className="section-prev"
+                    className="ufx-unique-section-prev"
                     onClick={() => prevPage("explanation")}
                     disabled={paginationData.explanation.currentPage === 0}
                   >
                     Prev
                   </button>
-                  <span className="section-page-indicator">
+                  <span className="ufx-unique-section-page-indicator">
                     Page {paginationData.explanation.currentPage + 1} of {paginationData.explanation.pages.length}
                   </span>
                   <button
-                    className="section-next"
+                    className="ufx-unique-section-next"
                     onClick={() => nextPage("explanation")}
                     disabled={paginationData.explanation.currentPage >= paginationData.explanation.pages.length - 1}
                   >
@@ -274,32 +263,32 @@ function FeatureModal({ feature, paginationData, setPaginationData, closeModal }
             )}
           </div>
           {/* How It Affects You Section */}
-          <div className={`accordion-item ${activeAccordion.affects ? "active" : ""}`}>
-            <div className="accordion-header" onClick={() => toggleAccordion("affects")}>
-              <h3>How It Affects You</h3>
+          <div className={`ufx-unique-accordion-item ${activeAccordion.affects ? "active" : ""}`}>
+            <div className="ufx-unique-accordion-header" onClick={() => toggleAccordion("affects")}>
+              <h3 className="ufx-unique-h3">How It Affects You</h3>
               <i className="fas fa-chevron-down"></i>
             </div>
             {activeAccordion.affects && (
-              <div className="accordion-content">
+              <div className="ufx-unique-accordion-content">
                 <div
-                  className="section-content"
+                  className="ufx-unique-section-content"
                   dangerouslySetInnerHTML={{
                     __html: paginationData.affects.pages[paginationData.affects.currentPage],
                   }}
                 ></div>
-                <div className="section-nav">
+                <div className="ufx-unique-section-nav">
                   <button
-                    className="section-prev"
+                    className="ufx-unique-section-prev"
                     onClick={() => prevPage("affects")}
                     disabled={paginationData.affects.currentPage === 0}
                   >
                     Prev
                   </button>
-                  <span className="section-page-indicator">
+                  <span className="ufx-unique-section-page-indicator">
                     Page {paginationData.affects.currentPage + 1} of {paginationData.affects.pages.length}
                   </span>
                   <button
-                    className="section-next"
+                    className="ufx-unique-section-next"
                     onClick={() => nextPage("affects")}
                     disabled={paginationData.affects.currentPage >= paginationData.affects.pages.length - 1}
                   >
@@ -315,9 +304,7 @@ function FeatureModal({ feature, paginationData, setPaginationData, closeModal }
   );
 }
 
-// ********************************************************************
-// The following is your original "Main App component" renamed as HomePage
-// ********************************************************************
+
 function BudgetFeaturesApp() {
   // Filter states
   const [profession, setProfession] = useState("all");
@@ -352,20 +339,6 @@ function BudgetFeaturesApp() {
       .then((data) => setTips(data))
       .catch((error) => console.error("❌ Error fetching tips:", error));
   }, []);
-
-  // Retrieve dark mode setting from localStorage on mount
-  useEffect(() => {
-    const savedDarkMode = localStorage.getItem("darkMode");
-    if (savedDarkMode === "enabled") {
-      setDarkMode(true);
-    }
-  }, []);
-
-  // Apply dark mode class and persist setting
-  useEffect(() => {
-    document.body.className = darkMode ? "dark-mode" : "";
-    localStorage.setItem("darkMode", darkMode ? "enabled" : "disabled");
-  }, [darkMode]);
 
   // Fetch features when filters change
   const fetchFeatures = () => {
@@ -417,9 +390,7 @@ function BudgetFeaturesApp() {
     });
   }, []);
 
-  // --------------------------------------------------------------------
-  // The following is your nested accordion demo component, renamed as AccordionDemo
-  // --------------------------------------------------------------------
+ 
   const AccordionDemo = () => {
     const [openAccordion, setOpenAccordion] = useState(null);
   
@@ -428,19 +399,19 @@ function BudgetFeaturesApp() {
     };
   
     return (
-      <div className="accordion-container">
-        <div className={`accordion-item ${openAccordion === 1 ? 'active' : ''}`}>
-          <div className="accordion-header" onClick={() => toggleAccordion(1)}>
+      <div className="ufx-unique-accordion-container">
+        <div className={`ufx-unique-accordion-item ${openAccordion === 1 ? 'active' : ''}`}>
+          <div className="ufx-unique-accordion-header" onClick={() => toggleAccordion(1)}>
             Section 1 {openAccordion === 1 ? '▲' : '▼'}
           </div>
-          {openAccordion === 1 && <div className="accordion-content">Content for section 1</div>}
+          {openAccordion === 1 && <div className="ufx-unique-accordion-content">Content for section 1</div>}
         </div>
   
-        <div className={`accordion-item ${openAccordion === 2 ? 'active' : ''}`}>
-          <div className="accordion-header" onClick={() => toggleAccordion(2)}>
+        <div className={`ufx-unique-accordion-item ${openAccordion === 2 ? 'active' : ''}`}>
+          <div className="ufx-unique-accordion-header" onClick={() => toggleAccordion(2)}>
             Section 2 {openAccordion === 2 ? '▲' : '▼'}
           </div>
-          {openAccordion === 2 && <div className="accordion-content">Content for section 2</div>}
+          {openAccordion === 2 && <div className="ufx-unique-accordion-content">Content for section 2</div>}
         </div>
       </div>
     );
@@ -510,11 +481,6 @@ function BudgetFeaturesApp() {
     setTip(null);
   };
 
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-  };
-
   // Close modal
   const closeModal = () => {
     setSelectedFeature(null);
@@ -522,39 +488,44 @@ function BudgetFeaturesApp() {
   };
 
   return (
-    <div className="container">
-      <Sidebar
-        filters={filters}
-        profession={profession}
-        setProfession={setProfession}
-        ageGroup={ageGroup}
-        setAgeGroup={setAgeGroup}
-        location={location}
-        setLocation={setLocation}
-        category={category}
-        setCategory={setCategory}
-        showTip={showTip}
-        tip={tip}
-        closeTip={closeTip}
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
-      />
-      <FeatureList
-        features={features}
-        loading={loading}
-        error={error}
-        onFeatureClick={openModal}
-      />
-      {isModalOpen && selectedFeature && (
-        <FeatureModal
-          feature={selectedFeature}
-          paginationData={paginationData}
-          setPaginationData={setPaginationData}
-          closeModal={closeModal}
+    <div className="page-layout">
+      <Navbar /> 
+      <div className="ufx-unique-container">
+        <Sidebar
+          filters={filters}
+          profession={profession}
+          setProfession={setProfession}
+          ageGroup={ageGroup}
+          setAgeGroup={setAgeGroup}
+          location={location}
+          setLocation={setLocation}
+          category={category}
+          setCategory={setCategory}
+          showTip={showTip}
+          tip={tip}
+          closeTip={closeTip}
+        
         />
-      )}
+        
+        <FeatureList
+          features={features}
+          loading={loading}
+          error={error}
+          onFeatureClick={openModal}
+        />
+  
+        {isModalOpen && selectedFeature && (
+          <FeatureModal
+            feature={selectedFeature}
+            paginationData={paginationData}
+            setPaginationData={setPaginationData}
+            closeModal={closeModal}
+          />
+        )}
+      </div>
     </div>
   );
+  
 }
 
 export default BudgetFeaturesApp;

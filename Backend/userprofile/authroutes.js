@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const UserModel = require('./user');
 const router = express.Router();
-
+/*
 // MongoDB Connection (Fix localhost typo)
 mongoose.connect('mongodb://127.0.0.1:27017/user', {
     useNewUrlParser: true,
@@ -12,7 +12,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/user', {
 })
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log("MongoDB connection error:", err));
-
+*/
 // ===============================
 // ✅ Register API
 // ===============================

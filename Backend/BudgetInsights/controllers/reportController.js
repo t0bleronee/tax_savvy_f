@@ -5,17 +5,18 @@ const { preprocessTaxData, generateTaxReport, generateAISummary } = require("../
 
 const fetchReports = async (req, res) => {
     try {
-        const { userId, ageGroup, profession } = req.query;
-        if (!userId || userId === "undefined") return res.status(400).json({ message: "Please calculate the tax for generating the report." });
+        const { profession, ageGroup,email  } = req.query;
+        if (!email || email === "undefined") return res.status(400).json({ message: "Please calculate the tax for generating the report." });
 
-        const isValidObjectId = /^[0-9a-fA-F]{24}$/.test(userId);
-        if (!isValidObjectId) return res.status(400).json({ message: "Invalid ObjectId format." });
+        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        if (!isValidEmail) return res.status(400).json({ message: "Invalid ObjectId format." });
 
         // Fetch tax data
-        const userData = await taxData.findById(userId);
-        
-        if (!userData) return res.status(404).json({ message: "User tax data not found." });
-        
+        const userData = await taxData.findOne({ email}).sort({ createdAt: -1 });
+        if (!userData) { // Change from userData.length
+            return res.status(404).json({ success: false, message: 'Tax data not found' });
+        }
         const cleanedData = preprocessTaxData(userData.toObject());
 
         const finalReport = await generateTaxReport(cleanedData);

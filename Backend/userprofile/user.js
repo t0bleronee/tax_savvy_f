@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const {localDB}= require('../TaxCalculator/config/db'); // Import the LocalDB connection
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -16,5 +16,5 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-const UserModel = mongoose.model('users', UserSchema);
+const UserModel = localDB.model('users', UserSchema);
 module.exports = UserModel;

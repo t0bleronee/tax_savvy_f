@@ -21,8 +21,9 @@ const BudgetReport = () => {
 
     setLoading(true);
     try {
-              const userId = "67da54411a49c5b82e6b720d";
-              const response = await fetch(`http://localhost:5000/api/fetch-features?profession=${profession}&ageGroup=${ageGroup}&userId=${userId}`, {
+      const email = localStorage.getItem("userEmail")
+      console.log("Stored Email:", email);
+              const response = await fetch(`http://localhost:5000/api/fetch-features?profession=${profession}&ageGroup=${ageGroup}&email=${email}`, {
                 method: "GET",
                 headers: { "Content-Type": "application/json" },
             });
@@ -41,14 +42,14 @@ const BudgetReport = () => {
         financialImpactFull: data?.financialImpactReport || "No financial impact report available.",
         socialImpactFull: data?.summary || "No AI summary available.",
         nationalImpactFull:  "The Union Budget 2025 focuses on making India self-reliant and developed by improving key aspects of life:\n\n" +
-        "1️⃣ Zero Poverty & Jobs: New financial schemes and employment programs to uplift low-income groups.\n" +
-        "2️⃣ Quality Education: Better schools, digital learning, and skill training for all.\n" +
-        "3️⃣ Affordable Healthcare: Expanded medical facilities and cancer care centers for easy access to treatment.\n" +
-        "4️⃣ Skilled Workforce & Employment: Training programs and business support to boost job opportunities.\n" +
-        "5️⃣ Women’s Economic Empowerment: Policies to increase women’s workforce participation.\n" +
-        "6️⃣ Stronger Agriculture: Modern farming support to make India a global food leader.\n" +
-        "7️⃣ Infrastructure & Innovation: Major investments in transport, energy, and technology for a future-ready India.\n" +
-        "8️⃣ Boosting Exports & Businesses: Support for startups, MSMEs, and global trade growth.\n\n" +
+        "Zero Poverty & Jobs: New financial schemes and employment programs to uplift low-income groups.\n" +
+        "Quality Education: Better schools, digital learning, and skill training for all.\n" +
+        "Affordable Healthcare: Expanded medical facilities and cancer care centers for easy access to treatment.\n" +
+        "Skilled Workforce & Employment: Training programs and business support to boost job opportunities.\n" +
+        "Women’s Economic Empowerment: Policies to increase women’s workforce participation.\n" +
+        "Stronger Agriculture: Modern farming support to make India a global food leader.\n" +
+        "Infrastructure & Innovation: Major investments in transport, energy, and technology for a future-ready India.\n" +
+        "Boosting Exports & Businesses: Support for startups, MSMEs, and global trade growth.\n\n" +
         "This budget builds a stronger economy with better education, jobs, healthcare, and opportunities for all.",
       financialImpact: getShortSummary(data.financialImpactReport),
         socialImpact: getShortSummary(data.summary),

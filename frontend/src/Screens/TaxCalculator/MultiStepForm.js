@@ -47,40 +47,40 @@ const handleSubmit = async () => {
       Object.entries(formData).map(([key, value]) => [key, sanitizeNumber(value)])
     );
 
-    // Check if the user already has tax data (GET request)
-    const email = localStorage.getItem("userEmail")||"us112@example.com";// Replace with the actual user email from context or state
+   // Check if the user already has tax data (GET request)||
+   const email = localStorage.getItem("userEmail");// Replace with the actual user email from context or state
  
-    // Determine the request method based on existing data
-    const method = "POST";
-    const url = "http://localhost:5000/tax/save";
+   // Determine the request method based on existing data
+   const method = "POST";
+   const url = "http://localhost:5000/tax/save";
 // Ensure email is included in the request body
 const requestData = {
-  email,  // Add email field
-  ...sanitizedData,  // Spread the sanitized data
+ email,  // Add email field
+ ...sanitizedData,  // Spread the sanitized data
 };
-    const response = await fetch(url, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(requestData), // Send sanitized data to backend
-    });
+   const response = await fetch(url, {
+     method,
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(requestData), // Send sanitized data to backend
+   });
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+   if (!response.ok) {
+     throw new Error("Network response was not ok");
+   }
 
-    const result = await response.json();
-    console.log("Calculating the tax");
-    alert(result.oldRegime.totalIncome);
-  
-    // Store the result in localStorage and navigate to the results page
-    localStorage.setItem("taxResult", JSON.stringify(result));
-    navigate("/comparison");
-  } catch (error) {
-    console.error("Error submitting form:", error);
-    alert("Error calculating tax. Please try again.");
-  }
+   const result = await response.json();
+   console.log("Calculating the tax");
+   alert(result.oldRegime.totalIncome);
+ 
+   // Store the result in localStorage and navigate to the results page
+   localStorage.setItem("taxResult", JSON.stringify(result));
+   navigate("/comparison");
+ } catch (error) {
+   console.error("Error submitting form:", error);
+   alert("Error calculating tax. Please try again.");
+ }
 };
 
   return (
