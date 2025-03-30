@@ -7,7 +7,7 @@ export default function HeroSection() {
        
 
       <img 
-        src="/Assets/img3.jpg" 
+        src="/Assets/hero_img.jpg" 
         
         alt="Hero" 
         className="img-fluid w-100" 
