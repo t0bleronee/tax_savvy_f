@@ -24,12 +24,15 @@ const Home = () => {
   return (
     <div>
       <Carousel items={homeCarouselItems} />
-      <h2 className="text-center mt-4">Welcome to TaxSavvy</h2>
-      <p className="text-center">
-        Your one-stop platform for simplified tax filing and financial insights.
-      </p>
+      
     </div>
   );
 };
 
 export default Home;
+
+
+//<h2 className="text-center mt-4">Welcome to TaxSavvy</h2>
+//<p className="text-center">
+//Your one-stop platform for simplified tax filing and financial insights.
+//</p>

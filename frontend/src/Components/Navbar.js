@@ -1,21 +1,64 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../css/Navbar.css'; 
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import '../css/Navbar.css';
 
 export default function Navbar() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigation = (sectionId) => {
+    if (location.pathname !== '/home') {
+      // If not on homepage, navigate to home first
+      navigate('/home', { state: { scrollTo: sectionId } });
+    } else {
+      // If already on homepage, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Add this effect to handle scroll after navigation
+  React.useEffect(() => {
+    if (location.state?.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100); // Small delay to ensure page is loaded
+      }
+    }
+  }, [location.state]);
+
   return (
     <nav className="navbar bg-light">
       <div className="container-fluid d-flex justify-content-between">
-        <a className="navbar-brand" href="#">TaxSavvy</a>
+        <Link className="navbar-brand" to="/home">TaxSavvy</Link>
         <ul className="navbar-nav d-flex flex-row">
           <li className="nav-item mx-2">
-            <Link className="nav-link active" to="/home">Home</Link>
+            <button 
+              className="nav-link" 
+              onClick={() => handleNavigation('hero')}
+            >
+              Home
+            </button>
           </li>
           <li className="nav-item mx-2">
-            <Link className="nav-link" to="/about">About Us</Link>
+            <button 
+              className="nav-link" 
+              onClick={() => handleNavigation('about')}
+            >
+              About Us
+            </button>
           </li>
           <li className="nav-item mx-2">
-            <Link className="nav-link" to="/contact">Contact Us</Link>
+            <button 
+              className="nav-link" 
+              onClick={() => handleNavigation('features')}
+            >
+              Features
+            </button>
           </li>
           <li className="nav-item mx-2">
             <Link className="nav-link btn btn-primary" to="/">LogOut</Link>

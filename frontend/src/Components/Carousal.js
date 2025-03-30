@@ -23,14 +23,14 @@ const Carousel = ({ items }) => {
         {items.map((item, index) => (
           <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index} data-bs-interval="4000">
             <div className="d-flex align-items-center justify-content-center" style={{ height: "500px" }}>
-              <div className="row w-100">
+              <div className="row w-100" style={{ paddingLeft: "12%" }}>
                 {/* Left Side: Quote */}
-                <div className="col-md-6 d-flex align-items-center justify-content-center text-start px-5">
-                  <h3>{item.quote}</h3>
+                <div className="col-md-6 d-flex align-items-center justify-content-end pe-4">
+                  <h3 style={{ marginBottom: "0", maxWidth: "90%" }}>{item.quote}</h3>
                 </div>
                 
                 {/* Right Side: Image */}
-                <div className="col-md-6 d-flex align-items-center justify-content-center">
+                <div className="col-md-6 d-flex align-items-center justify-content-start" >
                   <img src={item.imgSrc} className="img-fluid" alt={`Slide ${index + 1}`} style={{ maxHeight: "400px", borderRadius: "10px" }} />
                 </div>
               </div>

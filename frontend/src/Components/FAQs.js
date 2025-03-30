@@ -24,7 +24,8 @@ export default function FAQs() {
 
   return (
     <div className="faq-container">
-      <h2 className="faq-heading">Frequently Asked Questions</h2>
+      <h2 className="text-center mb-4" style={{ fontWeight: "bold", color: "#333", marginTop: "3%"  }}>
+      Frequently Asked Questions</h2>
       <div className="faq-list">
         {faqs.map((faq, index) => (
           <div key={index} className="faq-item" onClick={() => toggleFAQ(index)}>

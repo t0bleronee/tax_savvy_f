@@ -28,7 +28,7 @@ const VideoCarousel = () => {
   return (
     <div className="container my-4">
       {/* Styled Heading */}
-      <h2 className="text-center mb-4" style={{ fontFamily: "Poppins, sans-serif", fontWeight: "bold", color: "#333" }}>
+      <h2 className="text-center mb-4" style={{ fontWeight: "bold", color: "#333" }}>
         Resources
       </h2>
 
@@ -58,23 +58,22 @@ const VideoCarousel = () => {
           {videos.map((video, index) => (
             <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index} data-bs-interval="5000">
               <div className="d-flex align-items-center justify-content-center" style={{ height: "350px" }}>
-                <div className="row w-100">
+                <div className="row w-100 " style={{ paddingLeft: "11%" ,paddingRight: "11%" }}>
                   {/* Alternating Video & Description Position */}
                   {index % 2 === 0 ? (
                     <>
                       {/* Left Side: Video */}
                       <div className="col-md-6 d-flex align-items-center justify-content-center">
-                        <iframe
-                          width="100%"
-                          height="220"
-                          src={video.embedUrl}
-                          title={video.title}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          referrerPolicy="strict-origin-when-cross-origin"
-                          allowFullScreen
-                          style={{ borderRadius: "10px" }}
-                        ></iframe>
+                      <a href={video.embedUrl.replace("/embed/", "/watch?v=")} target="_blank" rel="noopener noreferrer">
+  <img 
+    src={`https://img.youtube.com/vi/${video.embedUrl.split("/embed/")[1].split("?")[0]}/hqdefault.jpg`} 
+    alt={video.title} 
+    width="100%" 
+    height="220" 
+    style={{ borderRadius: "10px", cursor: "pointer" }} 
+  />
+</a>
+
                       </div>
                       {/* Right Side: Description */}
                       <div className="col-md-6 d-flex align-items-center justify-content-center text-start px-4 text-white">
@@ -95,17 +94,16 @@ const VideoCarousel = () => {
                       </div>
                       {/* Right Side: Video */}
                       <div className="col-md-6 d-flex align-items-center justify-content-center">
-                        <iframe
-                          width="100%"
-                          height="220"
-                          src={video.embedUrl}
-                          title={video.title}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          referrerPolicy="strict-origin-when-cross-origin"
-                          allowFullScreen
-                          style={{ borderRadius: "10px" }}
-                        ></iframe>
+                      <a href={video.embedUrl.replace("/embed/", "/watch?v=")} target="_blank" rel="noopener noreferrer">
+  <img 
+    src={`https://img.youtube.com/vi/${video.embedUrl.split("/embed/")[1].split("?")[0]}/hqdefault.jpg`} 
+    alt={video.title} 
+    width="100%" 
+    height="220" 
+    style={{ borderRadius: "10px", cursor: "pointer" }} 
+  />
+</a>
+
                       </div>
                     </>
                   )}

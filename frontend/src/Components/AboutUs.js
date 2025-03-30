@@ -1,7 +1,9 @@
 import React from "react";
 import "../css/aboutus.css"; // Make sure this CSS file is linked
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate();
   return (
     <section className="about-us-container">
       <div className="about-us-image">
@@ -25,7 +27,7 @@ const AboutUs = () => {
           personalized budget reports, and actionable financial advice to ensure 
           users maximize their tax benefits effortlessly.
         </p>
-        <button className="more-about-btn">More About Us</button>
+        <button className="more-about-btn"  onClick={() => navigate("#")}>Get Started</button>
       </div>
     </section>
   );

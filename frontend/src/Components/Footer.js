@@ -1,8 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
-
+import "../css/footer.css"; // Import your CSS file for styling
 const Footer = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <footer className="bg-blue-400 text-white text-center py-6">
       {/* Social Media Icons */}
@@ -23,17 +28,43 @@ const Footer = () => {
 
       {/* Navigation Links */}
       <ul className="flex justify-center space-x-6 text-lg mb-4">
-        <li><Link to="/home" className="hover:opacity-75">Home</Link></li>
-        <li><Link to="/about" className="hover:opacity-75">About</Link></li>
-        <li><Link to="/services" className="hover:opacity-75">Services</Link></li>
-        <li><Link to="/team" className="hover:opacity-75">Team</Link></li>
-        <li><Link to="/contact" className="hover:opacity-75">Contact</Link></li>
+      <li className="hover:opacity-75">
+              <button 
+                className="nav-lin" 
+                onClick={() => scrollToSection('hero')}
+              >
+                Home
+              </button>
+            </li>
+      <li className="hover:opacity-75">
+              <button 
+                className="nav-lin" 
+                onClick={() => scrollToSection('features')}
+              >
+                Features
+              </button>
+            </li>
+            <li className="hover:opacity-75">
+              <button 
+                className="nav-lin" 
+                onClick={() => scrollToSection('about')}
+              >
+                About Us
+              </button>
+            </li>
+            <li className="hover:opacity-75">
+              <button 
+                className="nav-lin" 
+                onClick={() => scrollToSection('faqs')}
+              >
+                FAQs
+              </button>
+            </li>
+          
+            
       </ul>
 
-      {/* Address & Email */}
-      <p className="text-sm mb-2">📍 123, ABC Street, City, Country</p>
-      <p className="text-sm mb-4">📧 contact@example.com</p>
-
+   
       {/* Copyright */}
       <p className="text-sm">© {new Date().getFullYear()} Your Company | All Rights Reserved</p>
     </footer>

@@ -32,11 +32,12 @@
   
   /* Style for each link */
   .nav-link {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 2.2rem;
+    font-weight: 1000;
     color: #064635; /* Dark green */
     text-decoration: none;
     transition: color 0.3s ease-in-out;
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
   }
   
   .nav-link:hover {

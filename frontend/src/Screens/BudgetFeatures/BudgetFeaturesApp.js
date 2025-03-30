@@ -146,7 +146,7 @@ function FeatureList({ features, loading, error, onFeatureClick }) {
   return (
     <main className="ufx-unique-content">
       <header className="ufx-unique-header">
-        <h1>TaxSavvy Budget Explorer</h1>
+        <h1 className="ufx-unique-h1">TaxSavvy Budget Explorer</h1>
         <p>Find relevant budget features based on your profession and age.</p>
       </header>
       {loading ? <p>Loading...</p> : error ? <p>{error}</p> : null}
@@ -240,25 +240,7 @@ function FeatureModal({ feature, paginationData, setPaginationData, closeModal }
                     __html: paginationData.explanation.pages[paginationData.explanation.currentPage],
                   }}
                 ></div>
-                <div className="ufx-unique-section-nav">
-                  <button
-                    className="ufx-unique-section-prev"
-                    onClick={() => prevPage("explanation")}
-                    disabled={paginationData.explanation.currentPage === 0}
-                  >
-                    Prev
-                  </button>
-                  <span className="ufx-unique-section-page-indicator">
-                    Page {paginationData.explanation.currentPage + 1} of {paginationData.explanation.pages.length}
-                  </span>
-                  <button
-                    className="ufx-unique-section-next"
-                    onClick={() => nextPage("explanation")}
-                    disabled={paginationData.explanation.currentPage >= paginationData.explanation.pages.length - 1}
-                  >
-                    Next
-                  </button>
-                </div>
+                
               </div>
             )}
           </div>
@@ -276,25 +258,6 @@ function FeatureModal({ feature, paginationData, setPaginationData, closeModal }
                     __html: paginationData.affects.pages[paginationData.affects.currentPage],
                   }}
                 ></div>
-                <div className="ufx-unique-section-nav">
-                  <button
-                    className="ufx-unique-section-prev"
-                    onClick={() => prevPage("affects")}
-                    disabled={paginationData.affects.currentPage === 0}
-                  >
-                    Prev
-                  </button>
-                  <span className="ufx-unique-section-page-indicator">
-                    Page {paginationData.affects.currentPage + 1} of {paginationData.affects.pages.length}
-                  </span>
-                  <button
-                    className="ufx-unique-section-next"
-                    onClick={() => nextPage("affects")}
-                    disabled={paginationData.affects.currentPage >= paginationData.affects.pages.length - 1}
-                  >
-                    Next
-                  </button>
-                </div>
               </div>
             )}
           </div>
@@ -334,7 +297,7 @@ function BudgetFeaturesApp() {
 
   // Fetch tips from API
   useEffect(() => {
-    fetch("http://localhost:3000/api/tips")
+    fetch("http://localhost:5000/budget-features/api/tips")
       .then((response) => response.json())
       .then((data) => setTips(data))
       .catch((error) => console.error("❌ Error fetching tips:", error));
@@ -348,7 +311,7 @@ function BudgetFeaturesApp() {
     if (ageGroup !== "all") params.append("age", ageGroup);
     if (location !== "all") params.append("location", location);
     if (category !== "all") params.append("category", category);
-    fetch(`http://localhost:3000/features?${params.toString()}`)
+    fetch(`http://localhost:5000/budget-features/features?${params.toString()}`)
       .then((response) => response.json())
       .then((data) => {
         setFeatures(data);
@@ -368,7 +331,7 @@ function BudgetFeaturesApp() {
   // Fetch filter options dynamically
   useEffect(() => {
     ["location", "age", "profession", "category"].forEach((type) => {
-      fetch(`http://localhost:3000/filters/${type}`)
+      fetch(`http://localhost:5000/budget-features/filters/${type}`)
         .then((res) => res.json())
         .then((data) => {
           if (type === "location") {

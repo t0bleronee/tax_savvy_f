@@ -1,13 +1,15 @@
 import React from 'react';
 import './ComparisonTool.css';
 import Navbar from '../../Components/Navbar'; 
+import TaxComparisonChart from './graph'; // Import the TaxComparisonChart component
+import { useNavigate } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useState, useEffect } from 'react';
 ///do smtg and get the mailid from userdatabase
 const ComparisonTool = () => {
   const [taxData, setTaxData] = useState(null);
   const email = localStorage.getItem("userEmail"); // Replace with the actual user email from context or statelocalStorage.getItem("userEmail")||
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -208,6 +210,26 @@ const ComparisonTool = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
+   
+
+         {/* Additional Cards Section */}
+         <div className="additional-cards-container">
+            <div className="info-card">
+              <h3>Budget Report</h3>
+              <p>
+              A quick summary of your taxes and Union Budget schemes!📊💰
+              </p>
+              <button className="learn-more-btn" onClick={() => navigate("/budget-report")}>View Insights</button>
+            </div>
+            
+            <div className="info-card">
+              <h3>Personalised Tips</h3>
+              <p>
+              Simple and clever strategies to effectively boost your savings! 🚀💡
+              </p>
+              <button className="learn-more-btn" onClick={() => navigate("/financial-tipse")}>Explore Stratergies</button>
+            </div>
+          </div>
       </div>
     </div>
     </div>

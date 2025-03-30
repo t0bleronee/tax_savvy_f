@@ -1,13 +1,14 @@
 
 const express = require("express");
-const mysql = require("mysql");
-const cors = require("cors");
+const router = express.Router();
 const path = require("path");
+const cors = require("cors");
 const fs = require("fs");
 require("dotenv").config(); 
- 
-const app = express();
-const port = 3000;
+const { db,initializeDatabase } = require("../../BudgetInsights/config/mysql"); // Adjust the path
+
+/*const app = express();
+const port = 5000;
 
 // ✅ 1. Fix CORS for React Frontend
 app.use(cors({
@@ -17,8 +18,8 @@ app.use(cors({
 app.use(express.json());
 
 // ✅ 2. Serve Static Files (Optional, if needed)
-app.use(express.static(path.join(__dirname, "public")));
-
+app.use(express.static(path.join(__dirname, "public")));*/
+/*
 // ✅ 3. Setup MySQL Database Connection
 const db = mysql.createConnection({
     host: process.env.DB_HOST || "localhost",
@@ -26,17 +27,17 @@ const db = mysql.createConnection({
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_NAME || "taxsavvy"
 });
-
-db.connect((err) => {
-    if (err) {
-        console.error("❌ Database connection failed:", err);
-        process.exit(1);
-    }
-    console.log("✅ Connected to MySQL database.");
+*/
+// 3. Initialize Database (using your existing setup)
+initializeDatabase().then(() => {
+    console.log("✅ Database initialization complete");
+}).catch(err => {
+    console.error("❌ Database initialization failed:", err);
+    process.exit(1);
 });
 
 // ✅ 4. Fix `/api/tips` route (Ensure JSON is always returned)
-app.get("/api/tips", (req, res) => {
+router.get("/api/tips", (req, res) => {
     const filePath = path.join(__dirname, "tips.json");
 
     fs.readFile(filePath, "utf8", (err, data) => {
@@ -55,7 +56,7 @@ app.get("/api/tips", (req, res) => {
 });
 
 // ✅ 5. Fetch Filter Options (location, age, profession, category)
-app.get("/filters/:type", (req, res) => {
+router.get("/filters/:type", async(req, res) => {
     const type = req.params.type;
     let query = "";
 
@@ -75,13 +76,9 @@ app.get("/filters/:type", (req, res) => {
         default:
             return res.status(400).json({ error: "Invalid filter type" });
     }
-
-    db.query(query, (err, results) => {
-        if (err) {
-            console.error("❌ Error fetching filters:", err);
-            return res.status(500).json({ error: "Error fetching filters" });
-        }
-
+    try {
+        const [results] = await db.query(query);
+        
         let values = new Set();
         if (type === "category") {
             results.forEach(row => {
@@ -92,11 +89,15 @@ app.get("/filters/:type", (req, res) => {
         }
 
         res.json([...values]);
-    });
+    } catch (err) {
+        console.error("❌ Error fetching filters:", err);
+        res.status(500).json({ error: "Error fetching filters" });
+    }
 });
 
+
 // ✅ 6. Fetch Features Based on Selected Filters
-app.get("/features", (req, res) => {
+router.get("/features", async(req, res) => {
     const { age, location, profession, category } = req.query;
     let conditions = [];
     let params = [];
@@ -123,21 +124,18 @@ app.get("/features", (req, res) => {
         query += " WHERE " + conditions.join(" AND ");
     }
 
-    db.query(query, params, (err, results) => {
-        if (err) {
-            console.error("❌ Error fetching features:", err);
-            return res.status(500).json({ error: "Error fetching features" });
-        }
+    try {
+        const [results] = await db.query(query, params);
         res.json(results);
-    });
+    } catch (err) {
+        console.error("❌ Error fetching features:", err);
+        res.status(500).json({ error: "Error fetching features" });
+    }
 });
 
 // ✅ 7. Fix: Handle 404 for Unknown Routes (Prevents React from getting HTML errors)
-app.use((req, res) => {
+router.use((req, res) => {
     res.status(404).json({ error: "API endpoint not found" });
 });
 
-// ✅ 8. Start the Server
-app.listen(port, () => {
-    console.log(`🚀 Server running at http://localhost:${port}`);
-});
+module.exports = router;

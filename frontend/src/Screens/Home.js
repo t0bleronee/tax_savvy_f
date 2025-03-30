@@ -14,23 +14,36 @@ export default function Home() {
     <div>
       <Navbar />  {/* Navigation Bar */}
       
-      <div className="container-fluid p-0">
+      <div className="container-fluid p-0" id="hero">
         <HeroSec /> {/* Hero Section */}
       </div>
 
       <div className="container text-center my-5">
         <h1>Welcome to TaxSavvy</h1>
-        <p>Your smart tax companion!</p>
+        <h4>Your smart tax companion!</h4>
       </div>
-
-      {/* Tax Features Section */}
-      <TaxFeatures /> 
-      <HomeCarousal />
-      <AboutUs />
-      <FAQs />
-      <Video />
+      <div id="features">
+        <TaxFeatures />
+      </div>
       
+      <div id="carousel">
+        <HomeCarousal />
+      </div>
       
+      <div id="about">
+        <AboutUs />
+      </div>
+      
+      <div id="faqs">
+        <FAQs />
+      </div>
+      
+      <div id="video">
+        <Video />
+      </div>
+      
+      <Footer />
     </div>
+      
   );
 }

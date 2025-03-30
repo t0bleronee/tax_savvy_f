@@ -4,67 +4,63 @@ import "../css/TaxFeatures.css";
 
 
 // Import the CSS file for styling
-
 const features = [
   {
     header: "Tax Calculator",
+    emoji: "🔢",
     items: [
-      "Enter your income details",
-      "Add deductions & exemptions",
-      "Get an estimated tax liability",
-      "Compare tax regimes instantly",
+      "Estimate your tax instantly",
+      "Compare Old vs. New regime"
     ],
     buttonText: "Calculate Now",
     buttonLink: "/tax-calculator",
   },
   {
     header: "Budget Insights",
+    emoji: "📊",
     items: [
-      "Latest budget policy updates",
-      "Impact on tax savings",
-      "Personalized financial analysis",
-      "Interactive graphical insights",
+"Tax & budget at a glance ",
+"Key financial insights, simplified!"
     ],
     buttonText: "View Insights",
     buttonLink: "/budget-report",
   },
   {
     header: "Budget Features",
+    emoji: "🏛️",
     items: [
-      "Know about the new Union Budget Features",
-      "Filter the features that affect you",
-      "Understand how the feature affects you",
+      "Explore new budget policies",
+      "See what impacts you"
     ],
     buttonText: "Discover Schemes",
     buttonLink: "/budget-features",
   },
   {
-    header: "Interactive Tax Visualization",
+    header: "Tax Visualization",
+    emoji: "📈",
     items: [
-      "Visualize tax savings with interactive charts",
-      "Compare Old vs. New tax regime easily",
-      "Understand deductions with graphical representations",
+      "See savings with charts",
+      "Understand deductions easily"
     ],
     buttonText: "Explore Charts",
-    
     buttonLink: "/dashboard-charts",
   },
   {
-    header: "AI Chatbot Assistant",
+    header: "AI Tax Assistant",
+    emoji: "🤖",
     items: [
-      "Instant tax queries answered",
-      "Personalized suggestions",
-      "24/7 tax support",
+      "Get instant tax answers",
+      "Personalized 24/7 support"
     ],
     buttonText: "Ask Now",
     buttonLink: "/ai-chatbot",
   },
   {
-    header: "Tax Saving Strategies",
+    header: "Tax Saving Tips",
+    emoji: "💰",
     items: [
-      "Maximize savings with deductions",
-      "Best tax-saving investment plans",
-      "Expert financial tips",
+      "Maximize savings smartly",
+      "Best investment strategies"
     ],
     buttonText: "Explore Strategies",
     buttonLink: "/financial-tipse",
