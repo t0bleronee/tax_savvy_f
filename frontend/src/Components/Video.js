@@ -1,7 +1,6 @@
 import React from "react";
 
 import "bootstrap/dist/js/bootstrap.bundle.min.js";  // Ensure JS components work
-import "../css/VideoCarousel.css"
 const VideoCarousel = () => {
   const videos = [
     {

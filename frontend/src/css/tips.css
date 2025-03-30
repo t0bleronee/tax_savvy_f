@@ -70,7 +70,7 @@
     align-items: center;
     background: linear-gradient(to right, #A8D8D3, #4FD1A5);
     border-radius: 12px;
-    padding: 12px;
+    padding: 16px 20px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
 }

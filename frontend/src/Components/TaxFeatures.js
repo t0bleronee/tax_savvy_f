@@ -67,7 +67,7 @@ const features = [
       "Expert financial tips",
     ],
     buttonText: "Explore Strategies",
-    buttonLink: "/financial-tips",
+    buttonLink: "/financial-tipse",
   },
 ];
 
