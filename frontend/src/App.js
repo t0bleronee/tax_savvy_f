@@ -19,7 +19,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<LoginPage />} />
           <Route path="/financial-tips" element={<FinancialTips />} />  
-          <Route path="/financial-tips/:email" element={<FinancialTipsPage />} /> 
+          <Route path="/financial-tipse" element={<FinancialTipsPage />} /> 
           <Route path="/tax-calculator" element={<MultiStepForm />} /> 
           <Route path="/comparison" element={<ComparisonTool />} /> 
           <Route path="/budget-report" element={<BudgetReport />} /> 
