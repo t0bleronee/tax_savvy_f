@@ -8,7 +8,7 @@
 
 .tax-savvy-report {
   font-family: 'Arial', sans-serif;
-  background-color: var(--primary-color);
+  background: linear-gradient(to right bottom, #75e0b7, #e1e8e4);
   color: var(--dark-shade);
   margin:0;
   padding: 0;
