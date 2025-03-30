@@ -46,7 +46,7 @@ const FinancialTipsPage = () => {
             <div className="content-box">
                 <div className="header">
                     <h2 className="title">Your Financial Tips</h2>
-                   <Link to="/financial-tips" className="back-button">
+                   <Link to="/home" className="back-button">
                         <FaArrowLeft />
                         <span>Go Back</span>
                     </Link>
