@@ -47,10 +47,8 @@ const handleSubmit = async () => {
       Object.entries(formData).map(([key, value]) => [key, sanitizeNumber(value)])
     );
 
-   // Check if the user already has tax data (GET request)||
-   const email = localStorage.getItem("userEmail");// Replace with the actual user email from context or state
+   const email = localStorage.getItem("userEmail");
  
-   // Determine the request method based on existing data
    const method = "POST";
    const url = "http://localhost:5000/tax/save";
 // Ensure email is included in the request body
@@ -71,8 +69,6 @@ const requestData = {
    }
 
    const result = await response.json();
-   console.log("Calculating the tax");
-   alert(result.oldRegime.totalIncome);
  
    // Store the result in localStorage and navigate to the results page
    localStorage.setItem("taxResult", JSON.stringify(result));
@@ -115,7 +111,7 @@ const requestData = {
                   id="financialYear"
                   name="financialYear"
                 >
-                  <option value="2024-2025">2024-2025</option>
+                  <option value="2025-2026">2025-2026</option>
                 </select>
               </div>
               <div>
@@ -416,7 +412,7 @@ const requestData = {
   <button 
     onClick={() => {
       if (!formData.age) {
-        alert("Please enter your age before calculating.");
+        alert("Please enter your age.");
       } else {
         handleSubmit();
       }
