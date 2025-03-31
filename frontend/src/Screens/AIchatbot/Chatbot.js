@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { marked } from "marked";
 
-import Navbar from '../../Components/Navbar';
+import Navbar from "../../Components/Navbar";
+
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
   const chatWindowRef = useRef(null);
 
   useEffect(() => {
@@ -49,14 +49,10 @@ const Chatbot = () => {
   return (
     <div>
       <Navbar />
-    <div className={`page-container ${darkMode ? "dark-mode" : ""}`}>
+    <div className="page-container">
       <div className="content-box">
         <div className="header">
           <h2 className="title">CHAT WITH AI</h2>
-          <label className="switch">
-            <input type="checkbox" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-            <span className="slider"></span>
-          </label>
         </div>
 
         <div ref={chatWindowRef} className="chat-window">
@@ -67,6 +63,19 @@ const Chatbot = () => {
               dangerouslySetInnerHTML={{ __html: msg.text }}
             />
           ))}
+        </div>
+
+        {/* Suggestion Buttons */}
+        <div className="suggestions">
+          <button onClick={() => setInput("What is the standard deduction for salaried employees?")} className="suggestion-button">
+            Standard Deduction?
+          </button>
+          <button onClick={() => setInput("Can I switch between old and new tax regimes every year?")} className="suggestion-button">
+            Tax Regime Switching?
+          </button>
+          <button onClick={() => setInput("How does this year's Union Budget affect my taxes?")} className="suggestion-button">
+            Budget & Taxes?
+          </button>
         </div>
 
         <div className="input-container">
@@ -91,12 +100,6 @@ const Chatbot = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          transition: background 0.3s;
-        }
-
-        .dark-mode {
-          background: #1e1e1e;
-          color: white;
         }
 
         .content-box {
@@ -106,78 +109,19 @@ const Chatbot = () => {
           border-radius: 20px;
           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
           padding: 30px;
-          transition: background 0.3s, color 0.3s;
-        }
-
-        .dark-mode .content-box {
-          background: #2b2b2b;
-          color: white;
         }
 
         .header {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
           margin-bottom: 20px;
-          position: relative;
         }
 
         .title {
           font-size: 28px;
           font-weight: bold;
           color: #217A5D;
-          text-align: center;
-          flex: 1;
-        }
-
-        .dark-mode .title {
-          color: #4FD1A5;
-        }
-
-        /* Toggle Switch */
-        .switch {
-          position: relative;
-          display: inline-block;
-          width: 40px;
-          height: 20px;
-        }
-
-        .switch input {
-          opacity: 0;
-          width: 0;
-          height: 0;
-        }
-
-        .slider {
-          position: absolute;
-          cursor: pointer;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: #ccc;
-          transition: 0.4s;
-          border-radius: 20px;
-        }
-
-        .slider:before {
-          position: absolute;
-          content: "";
-          height: 14px;
-          width: 14px;
-          left: 4px;
-          bottom: 3px;
-          background-color: white;
-          transition: 0.4s;
-          border-radius: 50%;
-        }
-
-        input:checked + .slider {
-          background-color: #4FD1A5;
-        }
-
-        input:checked + .slider:before {
-          transform: translateX(18px);
         }
 
         .chat-window {
@@ -189,10 +133,6 @@ const Chatbot = () => {
           border-radius: 10px;
           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
           margin-bottom: 15px;
-        }
-
-        .dark-mode .chat-window {
-          background: #3b3b3b;
         }
 
         .user-message {
@@ -218,11 +158,6 @@ const Chatbot = () => {
           margin-left: 10px;
         }
 
-        .dark-mode .bot-message {
-          background: #2b2b2b;
-          color: #4FD1A5;
-        }
-
         .input-container {
           display: flex;
           justify-content: space-between;
@@ -235,12 +170,6 @@ const Chatbot = () => {
           border-radius: 10px;
           border: 1px solid #ccc;
           font-size: 16px;
-        }
-
-        .dark-mode .chat-input {
-          background: #3b3b3b;
-          color: white;
-          border: 1px solid #4FD1A5;
         }
 
         .send-button {
@@ -257,6 +186,29 @@ const Chatbot = () => {
 
         .send-button:hover {
           background: #217A5D;
+        }
+
+        /* Suggestion Buttons */
+        .suggestions {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 15px;
+        }
+
+        .suggestion-button {
+          background: #A8D8D3;
+          color: #217A5D;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 10px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+
+        .suggestion-button:hover {
+          background: #4FD1A5;
+          color: white;
         }
       `}</style>
     </div></div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ComparisonTool.css';
 import Navbar from '../../Components/Navbar'; 
-import TaxComparisonChart from './graph'; // Import the TaxComparisonChart component
+import TaxComparisonGraph from './graph'; // Import the TaxComparisonChart component
 import { useNavigate } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useState, useEffect } from 'react';
@@ -211,6 +211,10 @@ const ComparisonTool = () => {
           </ResponsiveContainer>
         </div>
    
+ {/* Tax Payable Graph */}
+ <h2 className="section-header1">Tax Payable Comparison</h2>
+        <TaxComparisonGraph oldTax={taxData.oldRegime.taxPayable} newTax={taxData.newRegime.taxPayable} />
+
 
          {/* Additional Cards Section */}
          <div className="additional-cards-container">

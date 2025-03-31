@@ -36,15 +36,15 @@ const features = [
     buttonLink: "/budget-features",
   },
   {
-    header: "Tax Visualization",
+    header: "Tax Comparison Insights",
     emoji: "📈",
     items: [
-      "See savings with charts",
-      "Understand deductions easily"
+      "Compare Old vs. New Regime",
+      "Insights based on the latest tax calculations"
     ],
-    buttonText: "Explore Charts",
-    buttonLink: "/dashboard-charts",
-  },
+    buttonText: "Compare Now",
+    buttonLink: "/comparison",
+},
   {
     header: "AI Tax Assistant",
     emoji: "🤖",

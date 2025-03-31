@@ -1,11 +1,12 @@
 /* Footer container */
 footer {
-  background-color: #39d59c; /* blue-400 equivalent */
-  color: white;
+  background: linear-gradient(to bottom right, #23c587, #36d0c6); /* Smooth gradient */
+  color: rgb(255, 255, 255);
   text-align: center;
   padding: 1.5rem 0; /* py-6 equivalent */
   width: 100%;
 }
+
 
 /* Social media icons container */
 footer .flex {
@@ -17,7 +18,7 @@ footer .flex {
 
 /* Social media icons */
 footer a {
-  color: inherit;
+  color:  rgb(60, 92, 73);
   text-decoration: none;
   transition: opacity 0.2s ease;
   font-size: 1.5rem; /* text-2xl */
@@ -42,7 +43,7 @@ footer ul {
 footer button.nav-lin {
   background: none;
   border: none;
-  color: inherit;
+  color:  rgb(60, 92, 73);
   font: inherit;
   padding: 0;
   margin: 0;

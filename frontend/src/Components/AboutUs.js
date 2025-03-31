@@ -1,9 +1,22 @@
 import React from "react";
 import "../css/aboutus.css"; // Make sure this CSS file is linked
-import { useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+    const location = useLocation();
   const navigate = useNavigate();
+  const handleNavigation = (sectionId) => {
+    if (location.pathname !== '/home') {
+      // If not on homepage, navigate to home first
+      navigate('/home', { state: { scrollTo: sectionId } });
+    } else {
+      // If already on homepage, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
   return (
     <section className="about-us-container">
       <div className="about-us-image">
@@ -27,7 +40,14 @@ const AboutUs = () => {
           personalized budget reports, and actionable financial advice to ensure 
           users maximize their tax benefits effortlessly.
         </p>
-        <button className="more-about-btn"  onClick={() => navigate("#")}>Get Started</button>
+        
+            <button 
+              className="more-about-btn" 
+              onClick={() => handleNavigation('features')}
+            >
+             Get Started
+            </button>
+          
       </div>
     </section>
   );

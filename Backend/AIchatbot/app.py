@@ -6,7 +6,7 @@ from pymongo import MongoClient
 app = Flask(__name__)
 CORS(app)
 
-genai.configure(api_key="API_KEY")
+genai.configure(api_key="AIzaSyAQAx7rRqLxq6U5XZAmX_xtU1A3kT55KTE")
 client = MongoClient("mongodb://localhost:27017/")
 db = client.chatbotDB
 messages_collection = db.messages

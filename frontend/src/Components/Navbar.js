@@ -34,7 +34,10 @@ export default function Navbar() {
   return (
     <nav className="navbar bg-light">
       <div className="container-fluid d-flex justify-content-between">
-        <Link className="navbar-brand" to="/home">TaxSavvy</Link>
+      <div className="d-flex align-items-center me-auto">
+      {/*<img src="/Assets/logo2.jpg" height="40" alt="Logo" className="me-2"/>*/}
+      <Link className="navbar-brand" to="/home">TaxSavvy</Link>
+    </div>
         <ul className="navbar-nav d-flex flex-row">
           <li className="nav-item mx-2">
             <button 

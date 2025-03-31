@@ -1,24 +1,25 @@
 // Connect to MongoDB
 const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
+//const cors = require("cors");
+
 const taxData = require("../TaxCalculator/model/product.model"); // MongoDB Model
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const { useReducedMotion } = require("framer-motion");
-const { list } = require("postcss");
-
+//const { useReducedMotion } = require("framer-motion");
+//const { list } = require("postcss");
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 // ✅ Initialize Google Gemini AI
-const GEMINI_API_KEY = "AIzaSyC_4_kNsIl1y9uJSvLqk2RTa6hIRp7C9wM";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY||"AIzaSyC_4_kNsIl1y9uJSvLqk2RTa6hIRp7C9wM";
 
 if (!GEMINI_API_KEY) {
-    console.error("❌ Missing GEMINI_API_KEY in environment variables");
+    console.error("❌ Missing GEMINII_API_KEY in environment variables");
     process.exit(1);
 }
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 //const { connectDB } = require("../TaxCalculator/config/db"); // Database connection
-dotenv.config();
+
 //connectDB();
 const router = express.Router();
 

@@ -91,18 +91,45 @@ const LoginSignup = () => {
             {/* Left Buttons */}
             <div className="col-sm-6 col-xs-12 d-none d-sm-block position-relative" id="leftCol" style={{ backgroundColor: "#D1E0E0" }}>
               <div className="position-absolute end-0 top-50 translate-middle-y d-flex flex-column text-end w-100 px-3">
-                <button
-                  className={`customBtn ${isLogin ? "activeBtn" : "whiteBtn"}`}
-                  onClick={() => setIsLogin(true)}
-                >
-                  Login
-                </button>
-                <button
-                  className={`customBtn ${!isLogin ? "activeBtn" : "whiteBtn"}`}
-                  onClick={() => setIsLogin(false)}
-                >
-                  Signup
-                </button>
+              <button
+  style={{
+    backgroundColor: isLogin ? "#064635" : "white",
+    color: isLogin ? "white" : "black",
+    border: isLogin ? "none" : "1px solid #ccc",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    width:"100%",
+    cursor: "pointer",
+    fontSize: "16px",
+    transition: "background 0.3s, color 0.3s",
+    marginBottom:"5px",
+  }}
+  onMouseOver={(e) => (e.target.style.backgroundColor = isLogin ? "#064635" : "#0b8b57")}
+  onMouseOut={(e) => (e.target.style.backgroundColor = isLogin ? "#064635" : "white")}
+  onClick={() => setIsLogin(true)}
+>
+  Login
+</button>
+
+<button
+  style={{
+    backgroundColor: !isLogin ? "#064635" : "white",
+    color: !isLogin ? "white" : "black",
+    border: !isLogin ? "none" : "1px solid #ccc",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    cursor: "pointer",
+    width:"100%",
+    fontSize: "16px",
+    transition: "background 0.3s, color 0.3s",
+  }}
+  onMouseOver={(e) => (e.target.style.backgroundColor = !isLogin ? "#064635" : "#0b8b57")}
+  onMouseOut={(e) => (e.target.style.backgroundColor = !isLogin ? "#064635" : "white")}
+  onClick={() => setIsLogin(false)}
+>
+  Signup
+</button>
+
               </div>
             </div>
 
@@ -110,7 +137,7 @@ const LoginSignup = () => {
             <div className="col-sm-6 col-xs-12">
               <div className="d-flex flex-column h-100 justify-content-center">
                 <div className="p-5 text-center">
-                  <img src="/Assets/logo.png" height="72" alt="Logo" className="mb-3" />
+                  <img src="/Assets/logo2.jpg" height="75" alt="Logo" className="mb-3" />
                   <h2 className="h3 pb-3">{isLogin ? "LOGIN" : "SIGNUP"}</h2>
 
                   <form onSubmit={handleSubmit}>
@@ -171,9 +198,7 @@ const LoginSignup = () => {
                     )}
 
                     <div className="d-flex align-items-center justify-content-between pt-2">
-                      {isLogin && (
-                        <a className="linkFlare" href="#"><small>Forgot Password?</small></a>
-                      )}
+                    
                       <button
                         type="submit"
                         className="btn btn-success px-4 rounded-pill ms-auto"

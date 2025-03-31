@@ -17,6 +17,7 @@ export default function HeroSection() {
         <h1 className="display-4 fw-bold">
           We Help Individuals with Smart Tax Solutions
         </h1>
+      
         <p className="lead">
           Whether you're a salaried individual or a business owner, our platform simplifies tax calculations and helps you make informed decisions.
         </p>

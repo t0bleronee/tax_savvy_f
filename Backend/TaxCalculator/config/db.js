@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-
-dotenv.config();
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 /*
 // Connection string (hardcoded for now, but it's better to use process.env variables for security)
 const connectString="mongodb+srv://kurlepurajesh18:EFrpJGLzLU8kWfbg@cluster0.0xebg.mongodb.net/products?retryWrites=true&w=majority&appName=Cluster0"
@@ -32,7 +31,7 @@ const localDB = mongoose.createConnection("mongodb://127.0.0.1:27017/user", {
 
 // MongoDB Atlas (Cloud) connection
 const comDB = mongoose.createConnection(
- "mongodb+srv://kurlepurajesh18:EFrpJGLzLU8kWfbg@cluster0.0xebg.mongodb.net/products?retryWrites=true&w=majority&appName=Cluster0",
+  "mongodb+srv://kurlepurajesh18:EFrpJGLzLU8kWfbg@cluster0.0xebg.mongodb.net/products?retryWrites=true&w=majority&appName=Cluster0",
 
   {
     useNewUrlParser: true,

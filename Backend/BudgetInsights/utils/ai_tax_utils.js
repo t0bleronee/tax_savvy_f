@@ -1,8 +1,6 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const dotenv = require("dotenv");
-
-dotenv.config();
-
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 function preprocessTaxData(data) {
     return {
         name: data.name || "Unknown",
@@ -87,7 +85,7 @@ Making an informed tax decision is crucial to optimizing your savings and maximi
 }
 
 // ✅ Initialize Google Gemini AI
-const GEMINI_API_KEY = "AIzaSyC_4_kNsIl1y9uJSvLqk2RTa6hIRp7C9wM";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY||"AIzaSyC_4_kNsIl1y9uJSvLqk2RTa6hIRp7C9wM";
 
 if (!GEMINI_API_KEY) {
     console.error("❌ Missing GEMINI_API_KEY in environment variables");
